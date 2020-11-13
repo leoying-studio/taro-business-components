@@ -14,28 +14,44 @@ export interface CurrentCity {
     current: Array<any>
 }
 
-export default class TaroRegionPicker extends Component<RegionProps, any> {
+interface StateMap {
+    region: string,
+    // H5、微信小程序、百度小程序、字节跳动小程序
+    range: RegionItem[][],
+    value: number[],
+    // 支付宝小程序
+    // list: []
+}
+
+interface RegionItem {
+    id:number
+    name: string,
+    pinyin: string,
+    childArea: RegionItem[]
+}
+
+export default class TaroRegionPicker extends Component<RegionProps, StateMap> {
     state = {
         region: '请选择省市区',
         // H5、微信小程序、百度小程序、字节跳动小程序
         range: [],
         value: [0, 0],
         // 支付宝小程序
-        list: []
+        // list: []
     }
 
     componentWillMount() {
         // 省市区选择器初始化
         // H5、微信小程序、百度小程序、字节跳动小程序
-        let range = this.state.range;
-        let temp = [];
+        let range = this.state.range as RegionItem[][]; 
+        let temp:RegionItem[] = [];
         for (let i = 0; i < region.length; i++) {
-            temp.push(region[i]);
+            temp.push(region[i] as RegionItem);
         }
         range.push(temp);
         temp = [];
         for (let i = 0; i < region[0].childArea.length; i++) {
-            temp.push(region[0].childArea[i]);
+            temp.push(region[0].childArea[i] as RegionItem);
         }
         range.push(temp);
         this.setState({
@@ -82,9 +98,9 @@ export default class TaroRegionPicker extends Component<RegionProps, any> {
         let rangeTemp = this.state.range;
         let valueTemp = this.state.value;
         valueTemp = e.detail.value;
-        regionTemp = [rangeTemp[0][valueTemp[0]] , rangeTemp[1][valueTemp[1]]];
+        let currentTemp: RegionItem[] = [rangeTemp[0][valueTemp[0]] , rangeTemp[1][valueTemp[1]]];
         this.setState({
-            region: regionTemp.map((item) => {
+            region: currentTemp.map((item) => {
                 return item.name
             }).join('-'),
             range: rangeTemp,
@@ -93,23 +109,23 @@ export default class TaroRegionPicker extends Component<RegionProps, any> {
     }
 
     onColumnChange = (e) => {
-        let rangeTemp = this.state.range;
+        let rangeTemp = this.state.range as RegionItem[][];
         let valueTemp = this.state.value;
 
         let column = e.detail.column;
         let row = e.detail.value;
 
         valueTemp[column] = row;
-
+        let regionSource = region as RegionItem[];
         switch (column) {
             case 0:
-                let cityTemp = [];
-                let districtAndCountyTemp = [];
-                for (let i = 0; i < region[row].childArea.length; i++) {
-                    cityTemp.push(region[row].childArea[i]);
+                let cityTemp: RegionItem[] = [];
+                let districtAndCountyTemp:RegionItem[] = [];
+                for (let i = 0; i < regionSource[row].childArea.length; i++) {
+                    cityTemp.push(regionSource[row].childArea[i]);
                 }
                 for (let i = 0; i < region[row].childArea[0].childArea.length; i++) {
-                    districtAndCountyTemp.push(region[row].childArea[0].childArea[i]);
+                    districtAndCountyTemp.push(regionSource[row].childArea[0].childArea[i]);
                 }
                 valueTemp[1] = 0;
                 valueTemp[2] = 0;
@@ -117,9 +133,9 @@ export default class TaroRegionPicker extends Component<RegionProps, any> {
                 // rangeTemp[2] = districtAndCountyTemp;
                 break;
             case 1:
-                let districtAndCountyTemp2 = [];
+                let districtAndCountyTemp2: RegionItem[]= [];
                 for (let i = 0; i < region[valueTemp[0]].childArea[row].childArea.length; i++) {
-                    districtAndCountyTemp2.push(region[valueTemp[0]].childArea[row].childArea[i]);
+                    districtAndCountyTemp2.push(regionSource[valueTemp[0]].childArea[row].childArea[i]);
                 }
                 valueTemp[2] = 0;
                 // rangeTemp[2] = districtAndCountyTemp2;
@@ -135,20 +151,20 @@ export default class TaroRegionPicker extends Component<RegionProps, any> {
     }
 
     // 支付宝小程序
-    onClick = () => {
-        let temp = this.state.region;
-        my.multiLevelSelect({
-            list: this.state.list,
-            success: (result) => {
-                if (result.success) {
-                    // temp = result.result[0]. + ' - ' + result.result[1].name + ' - ' + result.result[2].name;
-                    // this.setState({
-                    //     region: temp
-                    // }, () => {this.props.onGetRegion(this.state.region)})
-                }
-            }
-        })
-    }
+    // onClick = () => {
+    //     let temp = this.state.region;
+    //     my.multiLevelSelect({
+    //         list: this.state.list,
+    //         success: (result) => {
+    //             if (result.success) {
+    //                 // temp = result.result[0]. + ' - ' + result.result[1].name + ' - ' + result.result[2].name;
+    //                 // this.setState({
+    //                 //     region: temp
+    //                 // }, () => {this.props.onGetRegion(this.state.region)})
+    //             }
+    //         }
+    //     })
+    // }
 
     render () {
         return (

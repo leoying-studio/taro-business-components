@@ -4,7 +4,6 @@ import { AtButton, AtIcon, AtImagePicker, AtList, AtListItem, AtSwitch } from 't
 import './index.scss';
 
 const ImagePicker = () => {
-
     return (
         <View>
             <View className="photo-list">
@@ -17,5 +16,6 @@ const ImagePicker = () => {
             </View>
         </View>
     )
-
 }
+
+export default ImagePicker;

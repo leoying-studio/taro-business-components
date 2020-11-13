@@ -1,21 +1,19 @@
 import React, { Component, useEffect, useMemo, useRef, useState } from 'react'
 import { View, Text, Input, Picker, ScrollView } from '@tarojs/components'
-import { AtButton, AtIcon, AtImagePicker, AtList, AtListItem, AtSwitch } from 'taro-ui';
+import { AtButton, AtIcon, AtImagePicker, AtList, AtListItem, AtSwitch } from 'src/image-picker/node_modules/taro-ui';
 import Taro, { Current, render, useRouter } from '@tarojs/taro';
-import CityPicker from './city-picker';
-import ImagePicker from './image-picker';
+import CityPicker from '../city-picker';
+import ImagePicker from '../image-picker';
 import './index.scss';
 import { ConfigurationProps } from './static';
 
 const FormConfigurator:React.FC<ConfigurationProps> = function({dataSource}) {
     const [values, setValues] = useState({});
-    const cityRef = useState();
+    const cityRef = useState<CityPicker>();
 
     const renderListItem = (item, index) => {
         const renderRight = () => {
             if (item.type === 'input') {
-                console.log('--------key' + values[item.key])
-                console.log('--------placeholder' + item.placeholder)
                 return <Input
                     className="input"
                     type={item.inputType}
