@@ -3,12 +3,12 @@
       "id": 340000000000,
       "name": "安徽省",
       "pinyin": "A",
-      "childArea": [
+      "children": [
         {
           "id": 340800000000,
           "name": "安庆市",
           "pinyin": "A",
-          "childArea": [
+          "children": [
             {
               "id": 340801000000,
               "name": "市辖区",
@@ -75,7 +75,7 @@
           "id": 340300000000,
           "name": "蚌埠市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 340301000000,
               "name": "市辖区",
@@ -132,7 +132,7 @@
           "id": 341600000000,
           "name": "亳州市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 341601000000,
               "name": "市辖区",
@@ -164,7 +164,7 @@
           "id": 341100000000,
           "name": "滁州市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 341101000000,
               "name": "市辖区",
@@ -226,7 +226,7 @@
           "id": 341700000000,
           "name": "池州市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 341701000000,
               "name": "市辖区",
@@ -258,7 +258,7 @@
           "id": 341200000000,
           "name": "阜阳市",
           "pinyin": "F",
-          "childArea": [
+          "children": [
             {
               "id": 341201000000,
               "name": "市辖区",
@@ -320,7 +320,7 @@
           "id": 340100000000,
           "name": "合肥市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 340111000000,
               "name": "包河区",
@@ -392,7 +392,7 @@
           "id": 340400000000,
           "name": "淮南市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 340405000000,
               "name": "八公山区",
@@ -439,7 +439,7 @@
           "id": 340600000000,
           "name": "淮北市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 340602000000,
               "name": "杜集区",
@@ -471,7 +471,7 @@
           "id": 341000000000,
           "name": "黄山市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 341001000000,
               "name": "市辖区",
@@ -518,7 +518,7 @@
           "id": 341500000000,
           "name": "六安市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 341522000000,
               "name": "霍邱县",
@@ -565,7 +565,7 @@
           "id": 340500000000,
           "name": "马鞍山市",
           "pinyin": "M",
-          "childArea": [
+          "children": [
             {
               "id": 340506000000,
               "name": "博望区",
@@ -607,7 +607,7 @@
           "id": 341300000000,
           "name": "宿州市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 341321000000,
               "name": "砀山县",
@@ -654,7 +654,7 @@
           "id": 340700000000,
           "name": "铜陵市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 340711000000,
               "name": "郊区",
@@ -686,7 +686,7 @@
           "id": 340200000000,
           "name": "芜湖市",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 340272000000,
               "name": "安徽芜湖长江大桥经济开发区",
@@ -748,7 +748,7 @@
           "id": 341800000000,
           "name": "宣城市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 341822000000,
               "name": "广德县",
@@ -802,12 +802,12 @@
       "id": 110000000000,
       "name": "北京市",
       "pinyin": "B",
-      "childArea": [
+      "children": [
         {
           "id": 110100000000,
           "name": "北京",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 110114000000,
               "name": "昌平区",
@@ -896,12 +896,12 @@
       "id": 500000000000,
       "name": "重庆市",
       "pinyin": "C",
-      "childArea": [
+      "children": [
         {
           "id": 500100000000,
           "name": "重庆",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 500109000000,
               "name": "北碚区",
@@ -1038,7 +1038,7 @@
           "id": 500200000000,
           "name": "直辖县",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 500229000000,
               "name": "城口县",
@@ -1107,12 +1107,12 @@
       "id": 350000000000,
       "name": "福建省",
       "pinyin": "F",
-      "childArea": [
+      "children": [
         {
           "id": 350100000000,
           "name": "福州市",
           "pinyin": "F",
-          "childArea": [
+          "children": [
             {
               "id": 350104000000,
               "name": "仓山区",
@@ -1189,7 +1189,7 @@
           "id": 350800000000,
           "name": "龙岩市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 350821000000,
               "name": "长汀县",
@@ -1236,7 +1236,7 @@
           "id": 350700000000,
           "name": "南平市",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 350723000000,
               "name": "光泽县",
@@ -1298,7 +1298,7 @@
           "id": 350900000000,
           "name": "宁德市",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 350981000000,
               "name": "福安市",
@@ -1355,7 +1355,7 @@
           "id": 350300000000,
           "name": "莆田市",
           "pinyin": "P",
-          "childArea": [
+          "children": [
             {
               "id": 350302000000,
               "name": "城厢区",
@@ -1392,7 +1392,7 @@
           "id": 350500000000,
           "name": "泉州市",
           "pinyin": "Q",
-          "childArea": [
+          "children": [
             {
               "id": 350524000000,
               "name": "安溪县",
@@ -1464,7 +1464,7 @@
           "id": 350400000000,
           "name": "三明市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 350425000000,
               "name": "大田县",
@@ -1536,7 +1536,7 @@
           "id": 350200000000,
           "name": "厦门市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 350205000000,
               "name": "海沧区",
@@ -1578,7 +1578,7 @@
           "id": 350600000000,
           "name": "漳州市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 350625000000,
               "name": "长泰县",
@@ -1647,12 +1647,12 @@
       "id": 440000000000,
       "name": "广东省",
       "pinyin": "G",
-      "childArea": [
+      "children": [
         {
           "id": 445100000000,
           "name": "潮州市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 445101000000,
               "name": "市辖区",
@@ -1679,7 +1679,7 @@
           "id": 441900000000,
           "name": "东莞市",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 441900103000,
               "name": "茶山镇",
@@ -1861,7 +1861,7 @@
           "id": 440600000000,
           "name": "佛山市",
           "pinyin": "F",
-          "childArea": [
+          "children": [
             {
               "id": 440604000000,
               "name": "禅城区",
@@ -1898,7 +1898,7 @@
           "id": 440100000000,
           "name": "广州市",
           "pinyin": "G",
-          "childArea": [
+          "children": [
             {
               "id": 440111000000,
               "name": "白云区",
@@ -1965,7 +1965,7 @@
           "id": 441300000000,
           "name": "惠州市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 441322000000,
               "name": "博罗县",
@@ -2002,7 +2002,7 @@
           "id": 441600000000,
           "name": "河源市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 441625000000,
               "name": "东源县",
@@ -2044,7 +2044,7 @@
           "id": 440700000000,
           "name": "江门市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 440785000000,
               "name": "恩平市",
@@ -2091,7 +2091,7 @@
           "id": 445200000000,
           "name": "揭阳市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 445224000000,
               "name": "惠来县",
@@ -2128,7 +2128,7 @@
           "id": 440900000000,
           "name": "茂名市",
           "pinyin": "M",
-          "childArea": [
+          "children": [
             {
               "id": 440904000000,
               "name": "电白区",
@@ -2165,7 +2165,7 @@
           "id": 441400000000,
           "name": "梅州市",
           "pinyin": "M",
-          "childArea": [
+          "children": [
             {
               "id": 441422000000,
               "name": "大埔县",
@@ -2217,7 +2217,7 @@
           "id": 441800000000,
           "name": "清远市",
           "pinyin": "Q",
-          "childArea": [
+          "children": [
             {
               "id": 441821000000,
               "name": "佛冈县",
@@ -2269,7 +2269,7 @@
           "id": 440200000000,
           "name": "韶关市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 440281000000,
               "name": "乐昌市",
@@ -2331,7 +2331,7 @@
           "id": 440300000000,
           "name": "深圳市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 440306000000,
               "name": "宝安区",
@@ -2388,7 +2388,7 @@
           "id": 440500000000,
           "name": "汕头市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 440513000000,
               "name": "潮阳区",
@@ -2435,7 +2435,7 @@
           "id": 441500000000,
           "name": "汕尾市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 441502000000,
               "name": "城区",
@@ -2467,7 +2467,7 @@
           "id": 441700000000,
           "name": "阳江市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 441702000000,
               "name": "江城区",
@@ -2499,7 +2499,7 @@
           "id": 445300000000,
           "name": "云浮市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 445381000000,
               "name": "罗定市",
@@ -2536,7 +2536,7 @@
           "id": 440400000000,
           "name": "珠海市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 440403000000,
               "name": "斗门区",
@@ -2563,7 +2563,7 @@
           "id": 440800000000,
           "name": "湛江市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 440802000000,
               "name": "赤坎区",
@@ -2620,7 +2620,7 @@
           "id": 441200000000,
           "name": "肇庆市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 441202000000,
               "name": "端州区",
@@ -2672,7 +2672,7 @@
           "id": 442000000000,
           "name": "中山市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 442000115000,
               "name": "板芙镇",
@@ -2801,12 +2801,12 @@
       "id": 450000000000,
       "name": "广西壮族自治区",
       "pinyin": "G",
-      "childArea": [
+      "children": [
         {
           "id": 450500000000,
           "name": "北海市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 450501000000,
               "name": "市辖区",
@@ -2838,7 +2838,7 @@
           "id": 451000000000,
           "name": "百色市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 451001000000,
               "name": "市辖区",
@@ -2910,7 +2910,7 @@
           "id": 451400000000,
           "name": "崇左市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 451401000000,
               "name": "市辖区",
@@ -2957,7 +2957,7 @@
           "id": 450600000000,
           "name": "防城港市",
           "pinyin": "F",
-          "childArea": [
+          "children": [
             {
               "id": 450681000000,
               "name": "东兴市",
@@ -2989,7 +2989,7 @@
           "id": 450300000000,
           "name": "桂林市",
           "pinyin": "G",
-          "childArea": [
+          "children": [
             {
               "id": 450303000000,
               "name": "叠彩区",
@@ -3086,7 +3086,7 @@
           "id": 450800000000,
           "name": "贵港市",
           "pinyin": "G",
-          "childArea": [
+          "children": [
             {
               "id": 450801000000,
               "name": "市辖区",
@@ -3123,7 +3123,7 @@
           "id": 451100000000,
           "name": "贺州市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 451102000000,
               "name": "八步区",
@@ -3160,7 +3160,7 @@
           "id": 451200000000,
           "name": "河池市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 451227000000,
               "name": "巴马瑶族自治县",
@@ -3227,7 +3227,7 @@
           "id": 450200000000,
           "name": "柳州市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 450202000000,
               "name": "城中区",
@@ -3289,7 +3289,7 @@
           "id": 451300000000,
           "name": "来宾市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 451381000000,
               "name": "合山市",
@@ -3331,7 +3331,7 @@
           "id": 450100000000,
           "name": "南宁市",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 450126000000,
               "name": "宾阳县",
@@ -3403,7 +3403,7 @@
           "id": 450700000000,
           "name": "钦州市",
           "pinyin": "Q",
-          "childArea": [
+          "children": [
             {
               "id": 450721000000,
               "name": "灵山县",
@@ -3435,7 +3435,7 @@
           "id": 450400000000,
           "name": "梧州市",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 450405000000,
               "name": "长洲区",
@@ -3482,7 +3482,7 @@
           "id": 450900000000,
           "name": "玉林市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 450923000000,
               "name": "博白县",
@@ -3531,12 +3531,12 @@
       "id": 520000000000,
       "name": "贵州省",
       "pinyin": "G",
-      "childArea": [
+      "children": [
         {
           "id": 520400000000,
           "name": "安顺市",
           "pinyin": "A",
-          "childArea": [
+          "children": [
             {
               "id": 520401000000,
               "name": "市辖区",
@@ -3578,7 +3578,7 @@
           "id": 520500000000,
           "name": "毕节市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 520501000000,
               "name": "市辖区",
@@ -3630,7 +3630,7 @@
           "id": 520100000000,
           "name": "贵阳市",
           "pinyin": "G",
-          "childArea": [
+          "children": [
             {
               "id": 520113000000,
               "name": "白云区",
@@ -3692,7 +3692,7 @@
           "id": 520200000000,
           "name": "六盘水市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 520203000000,
               "name": "六枝特区",
@@ -3719,7 +3719,7 @@
           "id": 522300000000,
           "name": "黔西南布依族苗族自治州",
           "pinyin": "Q",
-          "childArea": [
+          "children": [
             {
               "id": 522328000000,
               "name": "安龙县",
@@ -3766,7 +3766,7 @@
           "id": 522600000000,
           "name": "黔东南苗族侗族自治州",
           "pinyin": "Q",
-          "childArea": [
+          "children": [
             {
               "id": 522626000000,
               "name": "岑巩县",
@@ -3853,7 +3853,7 @@
           "id": 522700000000,
           "name": "黔南布依族苗族自治州",
           "pinyin": "Q",
-          "childArea": [
+          "children": [
             {
               "id": 522729000000,
               "name": "长顺县",
@@ -3920,7 +3920,7 @@
           "id": 520600000000,
           "name": "铜仁市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 520602000000,
               "name": "碧江区",
@@ -3982,7 +3982,7 @@
           "id": 520300000000,
           "name": "遵义市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 520304000000,
               "name": "播州区",
@@ -4066,12 +4066,12 @@
       "id": 620000000000,
       "name": "甘肃省",
       "pinyin": "G",
-      "childArea": [
+      "children": [
         {
           "id": 620400000000,
           "name": "白银市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 620401000000,
               "name": "市辖区",
@@ -4108,7 +4108,7 @@
           "id": 621100000000,
           "name": "定西市",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 621102000000,
               "name": "安定区",
@@ -4155,7 +4155,7 @@
           "id": 623000000000,
           "name": "甘南藏族自治州",
           "pinyin": "G",
-          "childArea": [
+          "children": [
             {
               "id": 623024000000,
               "name": "迭部县",
@@ -4202,7 +4202,7 @@
           "id": 620200000000,
           "name": "嘉峪关市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 620201000000,
               "name": "市辖区",
@@ -4214,7 +4214,7 @@
           "id": 620300000000,
           "name": "金昌市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 620301000000,
               "name": "市辖区",
@@ -4236,7 +4236,7 @@
           "id": 620900000000,
           "name": "酒泉市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 620924000000,
               "name": "阿克塞哈萨克族自治县",
@@ -4283,7 +4283,7 @@
           "id": 620100000000,
           "name": "兰州市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 620105000000,
               "name": "安宁区",
@@ -4340,7 +4340,7 @@
           "id": 621200000000,
           "name": "陇南市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 621221000000,
               "name": "成县",
@@ -4397,7 +4397,7 @@
           "id": 622900000000,
           "name": "临夏回族自治州",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 622926000000,
               "name": "东乡族自治县",
@@ -4444,7 +4444,7 @@
           "id": 620800000000,
           "name": "平凉市",
           "pinyin": "P",
-          "childArea": [
+          "children": [
             {
               "id": 620823000000,
               "name": "崇信县",
@@ -4491,7 +4491,7 @@
           "id": 621000000000,
           "name": "庆阳市",
           "pinyin": "Q",
-          "childArea": [
+          "children": [
             {
               "id": 621022000000,
               "name": "环县",
@@ -4543,7 +4543,7 @@
           "id": 620500000000,
           "name": "天水市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 620523000000,
               "name": "甘谷县",
@@ -4590,7 +4590,7 @@
           "id": 620600000000,
           "name": "武威市",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 620622000000,
               "name": "古浪县",
@@ -4622,7 +4622,7 @@
           "id": 620700000000,
           "name": "张掖市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 620702000000,
               "name": "甘州区",
@@ -4666,12 +4666,12 @@
       "id": 130000000000,
       "name": "河北省",
       "pinyin": "H",
-      "childArea": [
+      "children": [
         {
           "id": 130600000000,
           "name": "保定市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 130632000000,
               "name": "安新县",
@@ -4813,7 +4813,7 @@
           "id": 130800000000,
           "name": "承德市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 130801000000,
               "name": "市辖区",
@@ -4885,7 +4885,7 @@
           "id": 130900000000,
           "name": "沧州市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 130901000000,
               "name": "市辖区",
@@ -4992,7 +4992,7 @@
           "id": 130400000000,
           "name": "邯郸市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 130403000000,
               "name": "丛台区",
@@ -5104,7 +5104,7 @@
           "id": 131100000000,
           "name": "衡水市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 131125000000,
               "name": "安平县",
@@ -5181,7 +5181,7 @@
           "id": 131000000000,
           "name": "廊坊市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 131002000000,
               "name": "安次区",
@@ -5248,7 +5248,7 @@
           "id": 130300000000,
           "name": "秦皇岛市",
           "pinyin": "Q",
-          "childArea": [
+          "children": [
             {
               "id": 130304000000,
               "name": "北戴河区",
@@ -5305,7 +5305,7 @@
           "id": 130100000000,
           "name": "石家庄市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 130102000000,
               "name": "长安区",
@@ -5437,7 +5437,7 @@
           "id": 130200000000,
           "name": "唐山市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 130209000000,
               "name": "曹妃甸区",
@@ -5539,7 +5539,7 @@
           "id": 130500000000,
           "name": "邢台市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 130524000000,
               "name": "柏乡县",
@@ -5651,7 +5651,7 @@
           "id": 130700000000,
           "name": "张家口市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 130709000000,
               "name": "崇礼区",
@@ -5760,12 +5760,12 @@
       "id": 230000000000,
       "name": "黑龙江省",
       "pinyin": "H",
-      "childArea": [
+      "children": [
         {
           "id": 230600000000,
           "name": "大庆市",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 230601000000,
               "name": "市辖区",
@@ -5827,7 +5827,7 @@
           "id": 232700000000,
           "name": "大兴安岭地区",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 232721000000,
               "name": "呼玛县",
@@ -5869,7 +5869,7 @@
           "id": 230100000000,
           "name": "哈尔滨市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 230112000000,
               "name": "阿城区",
@@ -5971,7 +5971,7 @@
           "id": 230400000000,
           "name": "鹤岗市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 230406000000,
               "name": "东山区",
@@ -6023,7 +6023,7 @@
           "id": 231100000000,
           "name": "黑河市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 231102000000,
               "name": "爱辉区",
@@ -6065,7 +6065,7 @@
           "id": 230300000000,
           "name": "鸡西市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 230306000000,
               "name": "城子河区",
@@ -6122,7 +6122,7 @@
           "id": 230800000000,
           "name": "佳木斯市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 230805000000,
               "name": "东风区",
@@ -6184,7 +6184,7 @@
           "id": 231000000000,
           "name": "牡丹江市",
           "pinyin": "M",
-          "childArea": [
+          "children": [
             {
               "id": 231004000000,
               "name": "爱民区",
@@ -6251,7 +6251,7 @@
           "id": 230200000000,
           "name": "齐齐哈尔市",
           "pinyin": "Q",
-          "childArea": [
+          "children": [
             {
               "id": 230205000000,
               "name": "昂昂溪区",
@@ -6343,7 +6343,7 @@
           "id": 230900000000,
           "name": "七台河市",
           "pinyin": "Q",
-          "childArea": [
+          "children": [
             {
               "id": 230921000000,
               "name": "勃利县",
@@ -6375,7 +6375,7 @@
           "id": 230500000000,
           "name": "双鸭山市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 230506000000,
               "name": "宝山区",
@@ -6427,7 +6427,7 @@
           "id": 231200000000,
           "name": "绥化市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 231281000000,
               "name": "安达市",
@@ -6489,7 +6489,7 @@
           "id": 230700000000,
           "name": "伊春市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 230706000000,
               "name": "翠峦区",
@@ -6588,12 +6588,12 @@
       "id": 410000000000,
       "name": "河南省",
       "pinyin": "H",
-      "childArea": [
+      "children": [
         {
           "id": 410500000000,
           "name": "安阳市",
           "pinyin": "A",
-          "childArea": [
+          "children": [
             {
               "id": 410501000000,
               "name": "市辖区",
@@ -6655,7 +6655,7 @@
           "id": 410600000000,
           "name": "鹤壁市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 410601000000,
               "name": "市辖区",
@@ -6697,7 +6697,7 @@
           "id": 419000000000,
           "name": "直辖县",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 419001000000,
               "name": "济源市",
@@ -6709,7 +6709,7 @@
           "id": 410800000000,
           "name": "焦作市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 410822000000,
               "name": "博爱县",
@@ -6776,7 +6776,7 @@
           "id": 410200000000,
           "name": "开封市",
           "pinyin": "K",
-          "childArea": [
+          "children": [
             {
               "id": 410204000000,
               "name": "鼓楼区",
@@ -6833,7 +6833,7 @@
           "id": 410300000000,
           "name": "洛阳市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 410304000000,
               "name": "瀍河回族区",
@@ -6925,7 +6925,7 @@
           "id": 411300000000,
           "name": "南阳市",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 411381000000,
               "name": "邓州市",
@@ -7012,7 +7012,7 @@
           "id": 410400000000,
           "name": "平顶山市",
           "pinyin": "P",
-          "childArea": [
+          "children": [
             {
               "id": 410421000000,
               "name": "宝丰县",
@@ -7084,7 +7084,7 @@
           "id": 410900000000,
           "name": "濮阳市",
           "pinyin": "P",
-          "childArea": [
+          "children": [
             {
               "id": 410926000000,
               "name": "范县",
@@ -7136,7 +7136,7 @@
           "id": 411200000000,
           "name": "三门峡市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 411202000000,
               "name": "湖滨区",
@@ -7183,7 +7183,7 @@
           "id": 411400000000,
           "name": "商丘市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 411472000000,
               "name": "河南商丘经济开发区",
@@ -7250,7 +7250,7 @@
           "id": 411100000000,
           "name": "漯河市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 411122000000,
               "name": "临颍县",
@@ -7292,7 +7292,7 @@
           "id": 410700000000,
           "name": "新乡市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 410728000000,
               "name": "长垣县",
@@ -7379,7 +7379,7 @@
           "id": 411000000000,
           "name": "许昌市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 411082000000,
               "name": "长葛市",
@@ -7426,7 +7426,7 @@
           "id": 411500000000,
           "name": "信阳市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 411522000000,
               "name": "光山县",
@@ -7493,7 +7493,7 @@
           "id": 410100000000,
           "name": "郑州市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 410185000000,
               "name": "登封市",
@@ -7580,7 +7580,7 @@
           "id": 411600000000,
           "name": "周口市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 411602000000,
               "name": "川汇区",
@@ -7647,7 +7647,7 @@
           "id": 411700000000,
           "name": "驻马店市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 411726000000,
               "name": "泌阳县",
@@ -7716,12 +7716,12 @@
       "id": 420000000000,
       "name": "湖北省",
       "pinyin": "H",
-      "childArea": [
+      "children": [
         {
           "id": 420700000000,
           "name": "鄂州市",
           "pinyin": "E",
-          "childArea": [
+          "children": [
             {
               "id": 420701000000,
               "name": "市辖区",
@@ -7748,7 +7748,7 @@
           "id": 422800000000,
           "name": "恩施土家族苗族自治州",
           "pinyin": "E",
-          "childArea": [
+          "children": [
             {
               "id": 422823000000,
               "name": "巴东县",
@@ -7795,7 +7795,7 @@
           "id": 420200000000,
           "name": "黄石市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 420281000000,
               "name": "大冶市",
@@ -7837,7 +7837,7 @@
           "id": 421100000000,
           "name": "黄冈市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 421101000000,
               "name": "市辖区",
@@ -7904,7 +7904,7 @@
           "id": 429000000000,
           "name": "直辖县",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 429005000000,
               "name": "潜江市",
@@ -7931,7 +7931,7 @@
           "id": 420800000000,
           "name": "荆门市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 420802000000,
               "name": "东宝区",
@@ -7968,7 +7968,7 @@
           "id": 421000000000,
           "name": "荆州市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 421022000000,
               "name": "公安县",
@@ -8025,7 +8025,7 @@
           "id": 420300000000,
           "name": "十堰市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 420381000000,
               "name": "丹江口市",
@@ -8077,7 +8077,7 @@
           "id": 421300000000,
           "name": "随州市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 421381000000,
               "name": "广水市",
@@ -8104,7 +8104,7 @@
           "id": 420100000000,
           "name": "武汉市",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 420114000000,
               "name": "蔡甸区",
@@ -8181,7 +8181,7 @@
           "id": 420600000000,
           "name": "襄阳市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 420626000000,
               "name": "保康县",
@@ -8238,7 +8238,7 @@
           "id": 420900000000,
           "name": "孝感市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 420982000000,
               "name": "安陆市",
@@ -8285,7 +8285,7 @@
           "id": 421200000000,
           "name": "咸宁市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 421223000000,
               "name": "崇阳县",
@@ -8327,7 +8327,7 @@
           "id": 420500000000,
           "name": "宜昌市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 420504000000,
               "name": "点军区",
@@ -8406,12 +8406,12 @@
       "id": 430000000000,
       "name": "湖南省",
       "pinyin": "H",
-      "childArea": [
+      "children": [
         {
           "id": 430100000000,
           "name": "长沙市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 430101000000,
               "name": "市辖区",
@@ -8468,7 +8468,7 @@
           "id": 430700000000,
           "name": "常德市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 430721000000,
               "name": "安乡县",
@@ -8530,7 +8530,7 @@
           "id": 431000000000,
           "name": "郴州市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 431028000000,
               "name": "安仁县",
@@ -8597,7 +8597,7 @@
           "id": 430400000000,
           "name": "衡阳市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 430482000000,
               "name": "常宁市",
@@ -8684,7 +8684,7 @@
           "id": 431200000000,
           "name": "怀化市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 431223000000,
               "name": "辰溪县",
@@ -8761,7 +8761,7 @@
           "id": 431300000000,
           "name": "娄底市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 431301000000,
               "name": "市辖区",
@@ -8798,7 +8798,7 @@
           "id": 430500000000,
           "name": "邵阳市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 430511000000,
               "name": "北塔区",
@@ -8870,7 +8870,7 @@
           "id": 430300000000,
           "name": "湘潭市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 430371000000,
               "name": "湖南湘潭高新技术产业园区",
@@ -8922,7 +8922,7 @@
           "id": 433100000000,
           "name": "湘西土家族苗族自治州",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 433125000000,
               "name": "保靖县",
@@ -8979,7 +8979,7 @@
           "id": 430600000000,
           "name": "岳阳市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 430623000000,
               "name": "华容县",
@@ -9041,7 +9041,7 @@
           "id": 430900000000,
           "name": "益阳市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 430923000000,
               "name": "安化县",
@@ -9093,7 +9093,7 @@
           "id": 431100000000,
           "name": "永州市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 431122000000,
               "name": "东安县",
@@ -9175,7 +9175,7 @@
           "id": 430200000000,
           "name": "株洲市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 430224000000,
               "name": "茶陵县",
@@ -9237,7 +9237,7 @@
           "id": 430800000000,
           "name": "张家界市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 430821000000,
               "name": "慈利县",
@@ -9271,12 +9271,12 @@
       "id": 460000000000,
       "name": "海南省",
       "pinyin": "H",
-      "childArea": [
+      "children": [
         {
           "id": 460400000000,
           "name": "儋州市",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 460400112000,
               "name": "白马井镇",
@@ -9373,7 +9373,7 @@
           "id": 460100000000,
           "name": "海口市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 460101000000,
               "name": "市辖区",
@@ -9405,7 +9405,7 @@
           "id": 469000000000,
           "name": "直辖县",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 469025000000,
               "name": "白沙黎族自治县",
@@ -9487,7 +9487,7 @@
           "id": 460200000000,
           "name": "三亚市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 460202000000,
               "name": "海棠区",
@@ -9519,7 +9519,7 @@
           "id": 460300000000,
           "name": "三沙市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 460322000000,
               "name": "南沙群岛",
@@ -9543,12 +9543,12 @@
       "id": 7013135772653,
       "name": "香港特别行政区",
       "pinyin": "H",
-      "childArea": [
+      "children": [
         {
           "id": 7011559760266,
           "name": "香港岛",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 7010849350906,
               "name": "中西区",
@@ -9575,7 +9575,7 @@
           "id": 7012837441705,
           "name": "九龙",
           "pinyin": "K",
-          "childArea": [
+          "children": [
             {
               "id": 7011617194943,
               "name": "九龙城区",
@@ -9607,7 +9607,7 @@
           "id": 7013591118785,
           "name": "新界",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 7012609184078,
               "name": "葵青区",
@@ -9661,12 +9661,12 @@
       "id": 220000000000,
       "name": "吉林省",
       "pinyin": "J",
-      "childArea": [
+      "children": [
         {
           "id": 220600000000,
           "name": "白山市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 220601000000,
               "name": "市辖区",
@@ -9708,7 +9708,7 @@
           "id": 220800000000,
           "name": "白城市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 220801000000,
               "name": "市辖区",
@@ -9750,7 +9750,7 @@
           "id": 220100000000,
           "name": "长春市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 220101000000,
               "name": "市辖区",
@@ -9832,7 +9832,7 @@
           "id": 220200000000,
           "name": "吉林市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 220202000000,
               "name": "昌邑区",
@@ -9904,7 +9904,7 @@
           "id": 220400000000,
           "name": "辽源市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 220421000000,
               "name": "东丰县",
@@ -9936,7 +9936,7 @@
           "id": 220300000000,
           "name": "四平市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 220381000000,
               "name": "公主岭市",
@@ -9978,7 +9978,7 @@
           "id": 220700000000,
           "name": "松原市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 220722000000,
               "name": "长岭县",
@@ -10020,7 +10020,7 @@
           "id": 220500000000,
           "name": "通化市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 220502000000,
               "name": "东昌区",
@@ -10067,7 +10067,7 @@
           "id": 222400000000,
           "name": "延边朝鲜族自治州",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 222426000000,
               "name": "安图县",
@@ -10116,12 +10116,12 @@
       "id": 320000000000,
       "name": "江苏省",
       "pinyin": "J",
-      "childArea": [
+      "children": [
         {
           "id": 320400000000,
           "name": "常州市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 320401000000,
               "name": "市辖区",
@@ -10163,7 +10163,7 @@
           "id": 320800000000,
           "name": "淮安市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 320801000000,
               "name": "市辖区",
@@ -10215,7 +10215,7 @@
           "id": 320700000000,
           "name": "连云港市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 320722000000,
               "name": "东海县",
@@ -10267,7 +10267,7 @@
           "id": 320100000000,
           "name": "南京市",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 320106000000,
               "name": "鼓楼区",
@@ -10334,7 +10334,7 @@
           "id": 320600000000,
           "name": "南通市",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 320602000000,
               "name": "崇川区",
@@ -10391,7 +10391,7 @@
           "id": 320500000000,
           "name": "苏州市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 320581000000,
               "name": "常熟市",
@@ -10453,7 +10453,7 @@
           "id": 321300000000,
           "name": "宿迁市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 321301000000,
               "name": "市辖区",
@@ -10495,7 +10495,7 @@
           "id": 321200000000,
           "name": "泰州市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 321203000000,
               "name": "高港区",
@@ -10542,7 +10542,7 @@
           "id": 320200000000,
           "name": "无锡市",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 320211000000,
               "name": "滨湖区",
@@ -10589,7 +10589,7 @@
           "id": 320300000000,
           "name": "徐州市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 320321000000,
               "name": "丰县",
@@ -10656,7 +10656,7 @@
           "id": 320900000000,
           "name": "盐城市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 320922000000,
               "name": "滨海县",
@@ -10718,7 +10718,7 @@
           "id": 321000000000,
           "name": "扬州市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 321023000000,
               "name": "宝应县",
@@ -10765,7 +10765,7 @@
           "id": 321100000000,
           "name": "镇江市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 321112000000,
               "name": "丹徒区",
@@ -10814,12 +10814,12 @@
       "id": 360000000000,
       "name": "江西省",
       "pinyin": "J",
-      "childArea": [
+      "children": [
         {
           "id": 361000000000,
           "name": "抚州市",
           "pinyin": "F",
-          "childArea": [
+          "children": [
             {
               "id": 361024000000,
               "name": "崇仁县",
@@ -10886,7 +10886,7 @@
           "id": 360700000000,
           "name": "赣州市",
           "pinyin": "G",
-          "childArea": [
+          "children": [
             {
               "id": 360726000000,
               "name": "安远县",
@@ -10988,7 +10988,7 @@
           "id": 360200000000,
           "name": "景德镇市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 360202000000,
               "name": "昌江区",
@@ -11020,7 +11020,7 @@
           "id": 360400000000,
           "name": "九江市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 360404000000,
               "name": "柴桑区",
@@ -11097,7 +11097,7 @@
           "id": 360800000000,
           "name": "吉安市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 360829000000,
               "name": "安福县",
@@ -11174,7 +11174,7 @@
           "id": 360100000000,
           "name": "南昌市",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 360123000000,
               "name": "安义县",
@@ -11231,7 +11231,7 @@
           "id": 360300000000,
           "name": "萍乡市",
           "pinyin": "P",
-          "childArea": [
+          "children": [
             {
               "id": 360302000000,
               "name": "安源区",
@@ -11268,7 +11268,7 @@
           "id": 361100000000,
           "name": "上饶市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 361181000000,
               "name": "德兴市",
@@ -11340,7 +11340,7 @@
           "id": 360500000000,
           "name": "新余市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 360521000000,
               "name": "分宜县",
@@ -11362,7 +11362,7 @@
           "id": 360600000000,
           "name": "鹰潭市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 360681000000,
               "name": "贵溪市",
@@ -11389,7 +11389,7 @@
           "id": 360900000000,
           "name": "宜春市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 360921000000,
               "name": "奉新县",
@@ -11453,12 +11453,12 @@
       "id": 210000000000,
       "name": "辽宁省",
       "pinyin": "L",
-      "childArea": [
+      "children": [
         {
           "id": 210300000000,
           "name": "鞍山市",
           "pinyin": "A",
-          "childArea": [
+          "children": [
             {
               "id": 210301000000,
               "name": "市辖区",
@@ -11505,7 +11505,7 @@
           "id": 210500000000,
           "name": "本溪市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 210501000000,
               "name": "市辖区",
@@ -11547,7 +11547,7 @@
           "id": 210200000000,
           "name": "大连市",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 210224000000,
               "name": "长海县",
@@ -11609,7 +11609,7 @@
           "id": 210600000000,
           "name": "丹东市",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 210601000000,
               "name": "市辖区",
@@ -11651,7 +11651,7 @@
           "id": 210400000000,
           "name": "抚顺市",
           "pinyin": "F",
-          "childArea": [
+          "children": [
             {
               "id": 210403000000,
               "name": "东洲区",
@@ -11698,7 +11698,7 @@
           "id": 210900000000,
           "name": "阜新市",
           "pinyin": "F",
-          "childArea": [
+          "children": [
             {
               "id": 210901000000,
               "name": "市辖区",
@@ -11745,7 +11745,7 @@
           "id": 211400000000,
           "name": "葫芦岛市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 211401000000,
               "name": "市辖区",
@@ -11787,7 +11787,7 @@
           "id": 210700000000,
           "name": "锦州市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 210782000000,
               "name": "北镇市",
@@ -11834,7 +11834,7 @@
           "id": 211000000000,
           "name": "辽阳市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 211002000000,
               "name": "白塔区",
@@ -11881,7 +11881,7 @@
           "id": 211100000000,
           "name": "盘锦市",
           "pinyin": "P",
-          "childArea": [
+          "children": [
             {
               "id": 211104000000,
               "name": "大洼区",
@@ -11913,7 +11913,7 @@
           "id": 210100000000,
           "name": "沈阳市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 210104000000,
               "name": "大东区",
@@ -11990,7 +11990,7 @@
           "id": 211200000000,
           "name": "铁岭市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 211224000000,
               "name": "昌图县",
@@ -12037,7 +12037,7 @@
           "id": 210800000000,
           "name": "营口市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 210804000000,
               "name": "鲅鱼圈区",
@@ -12079,7 +12079,7 @@
           "id": 211300000000,
           "name": "朝阳市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 211381000000,
               "name": "北票市",
@@ -12128,12 +12128,12 @@
       "id": 7112407077174,
       "name": "澳门特别行政区",
       "pinyin": "M",
-      "childArea": [
+      "children": [
         {
           "id": 7113878119597,
           "name": "路环岛",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 7113441486846,
               "name": "圣方济各堂区",
@@ -12145,7 +12145,7 @@
           "id": 7111217997835,
           "name": "澳门半岛",
           "pinyin": "M",
-          "childArea": [
+          "children": [
             {
               "id": 7111910163773,
               "name": "花地玛堂区",
@@ -12177,7 +12177,7 @@
           "id": 7110196278099,
           "name": "氹仔岛",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 7111710931118,
               "name": "嘉模堂区",
@@ -12191,12 +12191,12 @@
       "id": 150000000000,
       "name": "内蒙古自治区",
       "pinyin": "N",
-      "childArea": [
+      "children": [
         {
           "id": 152900000000,
           "name": "阿拉善盟",
           "pinyin": "A",
-          "childArea": [
+          "children": [
             {
               "id": 152921000000,
               "name": "阿拉善左旗",
@@ -12223,7 +12223,7 @@
           "id": 150200000000,
           "name": "包头市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 150201000000,
               "name": "市辖区",
@@ -12285,7 +12285,7 @@
           "id": 150800000000,
           "name": "巴彦淖尔市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 150801000000,
               "name": "市辖区",
@@ -12332,7 +12332,7 @@
           "id": 150400000000,
           "name": "赤峰市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 150421000000,
               "name": "阿鲁科尔沁旗",
@@ -12404,7 +12404,7 @@
           "id": 150600000000,
           "name": "鄂尔多斯市",
           "pinyin": "E",
-          "childArea": [
+          "children": [
             {
               "id": 150602000000,
               "name": "东胜区",
@@ -12461,7 +12461,7 @@
           "id": 150100000000,
           "name": "呼和浩特市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 150101000000,
               "name": "市辖区",
@@ -12528,7 +12528,7 @@
           "id": 150700000000,
           "name": "呼伦贝尔市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 150721000000,
               "name": "阿荣旗",
@@ -12610,7 +12610,7 @@
           "id": 150500000000,
           "name": "通辽市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 150581000000,
               "name": "霍林郭勒市",
@@ -12667,7 +12667,7 @@
           "id": 150300000000,
           "name": "乌海市",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 150302000000,
               "name": "海勃湾区",
@@ -12694,7 +12694,7 @@
           "id": 150900000000,
           "name": "乌兰察布市",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 150926000000,
               "name": "察哈尔右翼前旗",
@@ -12761,7 +12761,7 @@
           "id": 152200000000,
           "name": "兴安盟",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 152202000000,
               "name": "阿尔山市",
@@ -12798,7 +12798,7 @@
           "id": 152500000000,
           "name": "锡林郭勒盟",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 152522000000,
               "name": "阿巴嘎旗",
@@ -12872,12 +12872,12 @@
       "id": 640000000000,
       "name": "宁夏回族自治区",
       "pinyin": "N",
-      "childArea": [
+      "children": [
         {
           "id": 640400000000,
           "name": "固原市",
           "pinyin": "G",
-          "childArea": [
+          "children": [
             {
               "id": 640401000000,
               "name": "市辖区",
@@ -12914,7 +12914,7 @@
           "id": 640200000000,
           "name": "石嘴山市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 640202000000,
               "name": "大武口区",
@@ -12941,7 +12941,7 @@
           "id": 640300000000,
           "name": "吴忠市",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 640303000000,
               "name": "红寺堡区",
@@ -12978,7 +12978,7 @@
           "id": 640100000000,
           "name": "银川市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 640122000000,
               "name": "贺兰县",
@@ -13020,7 +13020,7 @@
           "id": 640500000000,
           "name": "中卫市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 640522000000,
               "name": "海原县",
@@ -13049,12 +13049,12 @@
       "id": 630000000000,
       "name": "青海省",
       "pinyin": "Q",
-      "childArea": [
+      "children": [
         {
           "id": 632600000000,
           "name": "果洛藏族自治州",
           "pinyin": "G",
-          "childArea": [
+          "children": [
             {
               "id": 632622000000,
               "name": "班玛县",
@@ -13091,7 +13091,7 @@
           "id": 630200000000,
           "name": "海东市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 630223000000,
               "name": "互助土族自治县",
@@ -13128,7 +13128,7 @@
           "id": 632200000000,
           "name": "海北藏族自治州",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 632224000000,
               "name": "刚察县",
@@ -13155,7 +13155,7 @@
           "id": 632300000000,
           "name": "黄南藏族自治州",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 632324000000,
               "name": "河南蒙古族自治县",
@@ -13182,7 +13182,7 @@
           "id": 632500000000,
           "name": "海南藏族自治州",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 632521000000,
               "name": "共和县",
@@ -13214,7 +13214,7 @@
           "id": 632800000000,
           "name": "海西蒙古族藏族自治州",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 632802000000,
               "name": "德令哈市",
@@ -13256,7 +13256,7 @@
           "id": 630100000000,
           "name": "西宁市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 630102000000,
               "name": "城东区",
@@ -13303,7 +13303,7 @@
           "id": 632700000000,
           "name": "玉树藏族自治州",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 632723000000,
               "name": "称多县",
@@ -13342,12 +13342,12 @@
       "id": 140000000000,
       "name": "山西省",
       "pinyin": "S",
-      "childArea": [
+      "children": [
         {
           "id": 140400000000,
           "name": "长治市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 140401000000,
               "name": "市辖区",
@@ -13424,7 +13424,7 @@
           "id": 140200000000,
           "name": "大同市",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 140201000000,
               "name": "市辖区",
@@ -13491,7 +13491,7 @@
           "id": 140500000000,
           "name": "晋城市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 140502000000,
               "name": "城区",
@@ -13533,7 +13533,7 @@
           "id": 140700000000,
           "name": "晋中市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 140723000000,
               "name": "和顺县",
@@ -13600,7 +13600,7 @@
           "id": 141000000000,
           "name": "临汾市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 141026000000,
               "name": "安泽县",
@@ -13697,7 +13697,7 @@
           "id": 141100000000,
           "name": "吕梁市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 141128000000,
               "name": "方山县",
@@ -13774,7 +13774,7 @@
           "id": 140600000000,
           "name": "朔州市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 140681000000,
               "name": "怀仁市",
@@ -13821,7 +13821,7 @@
           "id": 140100000000,
           "name": "太原市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 140181000000,
               "name": "古交市",
@@ -13888,7 +13888,7 @@
           "id": 140900000000,
           "name": "忻州市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 140931000000,
               "name": "保德县",
@@ -13975,7 +13975,7 @@
           "id": 140300000000,
           "name": "阳泉市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 140302000000,
               "name": "城区",
@@ -14012,7 +14012,7 @@
           "id": 140800000000,
           "name": "运城市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 140882000000,
               "name": "河津市",
@@ -14091,12 +14091,12 @@
       "id": 310000000000,
       "name": "上海市",
       "pinyin": "S",
-      "childArea": [
+      "children": [
         {
           "id": 310100000000,
           "name": "上海",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 310113000000,
               "name": "宝山区",
@@ -14185,12 +14185,12 @@
       "id": 370000000000,
       "name": "山东省",
       "pinyin": "S",
-      "childArea": [
+      "children": [
         {
           "id": 371600000000,
           "name": "滨州市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 371601000000,
               "name": "市辖区",
@@ -14237,7 +14237,7 @@
           "id": 370500000000,
           "name": "东营市",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 370501000000,
               "name": "市辖区",
@@ -14284,7 +14284,7 @@
           "id": 371400000000,
           "name": "德州市",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 371401000000,
               "name": "市辖区",
@@ -14361,7 +14361,7 @@
           "id": 371700000000,
           "name": "菏泽市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 371721000000,
               "name": "曹县",
@@ -14428,7 +14428,7 @@
           "id": 370100000000,
           "name": "济南市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 370113000000,
               "name": "长清区",
@@ -14495,7 +14495,7 @@
           "id": 370800000000,
           "name": "济宁市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 370801000000,
               "name": "市辖区",
@@ -14567,7 +14567,7 @@
           "id": 371200000000,
           "name": "莱芜市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 371203000000,
               "name": "钢城区",
@@ -14589,7 +14589,7 @@
           "id": 371300000000,
           "name": "临沂市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 371325000000,
               "name": "费县",
@@ -14676,7 +14676,7 @@
           "id": 371500000000,
           "name": "聊城市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 371523000000,
               "name": "茌平县",
@@ -14728,7 +14728,7 @@
           "id": 370200000000,
           "name": "青岛市",
           "pinyin": "Q",
-          "childArea": [
+          "children": [
             {
               "id": 370214000000,
               "name": "城阳区",
@@ -14795,7 +14795,7 @@
           "id": 371100000000,
           "name": "日照市",
           "pinyin": "R",
-          "childArea": [
+          "children": [
             {
               "id": 371102000000,
               "name": "东港区",
@@ -14832,7 +14832,7 @@
           "id": 370900000000,
           "name": "泰安市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 370911000000,
               "name": "岱岳区",
@@ -14874,7 +14874,7 @@
           "id": 370700000000,
           "name": "潍坊市",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 370784000000,
               "name": "安丘市",
@@ -14951,7 +14951,7 @@
           "id": 371000000000,
           "name": "威海市",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 371002000000,
               "name": "环翠区",
@@ -14998,7 +14998,7 @@
           "id": 370600000000,
           "name": "烟台市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 370634000000,
               "name": "长岛县",
@@ -15080,7 +15080,7 @@
           "id": 370300000000,
           "name": "淄博市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 370304000000,
               "name": "博山区",
@@ -15132,7 +15132,7 @@
           "id": 370400000000,
           "name": "枣庄市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 370402000000,
               "name": "市中区",
@@ -15176,12 +15176,12 @@
       "id": 510000000000,
       "name": "四川省",
       "pinyin": "S",
-      "childArea": [
+      "children": [
         {
           "id": 513200000000,
           "name": "阿坝藏族羌族自治州",
           "pinyin": "A",
-          "childArea": [
+          "children": [
             {
               "id": 513231000000,
               "name": "阿坝县",
@@ -15253,7 +15253,7 @@
           "id": 511900000000,
           "name": "巴中市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 511901000000,
               "name": "市辖区",
@@ -15295,7 +15295,7 @@
           "id": 510100000000,
           "name": "成都市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 510101000000,
               "name": "市辖区",
@@ -15407,7 +15407,7 @@
           "id": 510600000000,
           "name": "德阳市",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 510601000000,
               "name": "市辖区",
@@ -15449,7 +15449,7 @@
           "id": 511700000000,
           "name": "达州市",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 511701000000,
               "name": "市辖区",
@@ -15501,7 +15501,7 @@
           "id": 510800000000,
           "name": "广元市",
           "pinyin": "G",
-          "childArea": [
+          "children": [
             {
               "id": 510812000000,
               "name": "朝天区",
@@ -15548,7 +15548,7 @@
           "id": 511600000000,
           "name": "广安市",
           "pinyin": "G",
-          "childArea": [
+          "children": [
             {
               "id": 511601000000,
               "name": "市辖区",
@@ -15590,7 +15590,7 @@
           "id": 513300000000,
           "name": "甘孜藏族自治州",
           "pinyin": "G",
-          "childArea": [
+          "children": [
             {
               "id": 513331000000,
               "name": "白玉县",
@@ -15687,7 +15687,7 @@
           "id": 510500000000,
           "name": "泸州市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 510525000000,
               "name": "古蔺县",
@@ -15734,7 +15734,7 @@
           "id": 511100000000,
           "name": "乐山市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 511132000000,
               "name": "峨边彝族自治县",
@@ -15801,7 +15801,7 @@
           "id": 513400000000,
           "name": "凉山彝族自治州",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 513429000000,
               "name": "布拖县",
@@ -15893,7 +15893,7 @@
           "id": 510700000000,
           "name": "绵阳市",
           "pinyin": "M",
-          "childArea": [
+          "children": [
             {
               "id": 510705000000,
               "name": "安州区",
@@ -15950,7 +15950,7 @@
           "id": 511400000000,
           "name": "眉山市",
           "pinyin": "M",
-          "childArea": [
+          "children": [
             {
               "id": 511402000000,
               "name": "东坡区",
@@ -15992,7 +15992,7 @@
           "id": 511000000000,
           "name": "内江市",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 511011000000,
               "name": "东兴区",
@@ -16034,7 +16034,7 @@
           "id": 511300000000,
           "name": "南充市",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 511303000000,
               "name": "高坪区",
@@ -16091,7 +16091,7 @@
           "id": 510400000000,
           "name": "攀枝花市",
           "pinyin": "P",
-          "childArea": [
+          "children": [
             {
               "id": 510402000000,
               "name": "东区",
@@ -16128,7 +16128,7 @@
           "id": 510900000000,
           "name": "遂宁市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 510904000000,
               "name": "安居区",
@@ -16165,7 +16165,7 @@
           "id": 511500000000,
           "name": "宜宾市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 511502000000,
               "name": "翠屏区",
@@ -16227,7 +16227,7 @@
           "id": 511800000000,
           "name": "雅安市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 511827000000,
               "name": "宝兴县",
@@ -16279,7 +16279,7 @@
           "id": 510300000000,
           "name": "自贡市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 510304000000,
               "name": "大安区",
@@ -16321,7 +16321,7 @@
           "id": 512000000000,
           "name": "资阳市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 512021000000,
               "name": "安岳县",
@@ -16350,12 +16350,12 @@
       "id": 610000000000,
       "name": "陕西省",
       "pinyin": "S",
-      "childArea": [
+      "children": [
         {
           "id": 610900000000,
           "name": "安康市",
           "pinyin": "A",
-          "childArea": [
+          "children": [
             {
               "id": 610901000000,
               "name": "市辖区",
@@ -16417,7 +16417,7 @@
           "id": 610300000000,
           "name": "宝鸡市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 610301000000,
               "name": "市辖区",
@@ -16489,7 +16489,7 @@
           "id": 610700000000,
           "name": "汉中市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 610722000000,
               "name": "城固县",
@@ -16556,7 +16556,7 @@
           "id": 611000000000,
           "name": "商洛市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 611022000000,
               "name": "丹凤县",
@@ -16603,7 +16603,7 @@
           "id": 610200000000,
           "name": "铜川市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 610201000000,
               "name": "市辖区",
@@ -16635,7 +16635,7 @@
           "id": 610500000000,
           "name": "渭南市",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 610527000000,
               "name": "白水县",
@@ -16702,7 +16702,7 @@
           "id": 610100000000,
           "name": "西安市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 610103000000,
               "name": "碑林区",
@@ -16779,7 +16779,7 @@
           "id": 610400000000,
           "name": "咸阳市",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 610482000000,
               "name": "彬州市",
@@ -16861,7 +16861,7 @@
           "id": 610600000000,
           "name": "延安市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 610603000000,
               "name": "安塞区",
@@ -16938,7 +16938,7 @@
           "id": 610800000000,
           "name": "榆林市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 610825000000,
               "name": "定边县",
@@ -17012,12 +17012,12 @@
       "id": 120000000000,
       "name": "天津市",
       "pinyin": "T",
-      "childArea": [
+      "children": [
         {
           "id": 120100000000,
           "name": "天津",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 120113000000,
               "name": "北辰区",
@@ -17106,12 +17106,12 @@
       "id": 7212684281636,
       "name": "台湾省",
       "pinyin": "T",
-      "childArea": [
+      "children": [
         {
           "id": 7211363068475,
           "name": "彰化县",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 7210561847290,
               "name": "北斗镇",
@@ -17248,7 +17248,7 @@
           "id": 7212735772392,
           "name": "嘉义市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 7210037031425,
               "name": "东区",
@@ -17265,7 +17265,7 @@
           "id": 7210941525844,
           "name": "嘉义县",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 7213215860619,
               "name": "阿里山乡",
@@ -17362,7 +17362,7 @@
           "id": 7210628507899,
           "name": "新竹市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 7210696581395,
               "name": "东区",
@@ -17384,7 +17384,7 @@
           "id": 7210872151750,
           "name": "新竹县",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 7210441779365,
               "name": "宝山乡",
@@ -17456,7 +17456,7 @@
           "id": 7213659713107,
           "name": "花莲县",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 7211269720420,
               "name": "丰滨乡",
@@ -17528,7 +17528,7 @@
           "id": 7212732834600,
           "name": "高雄市",
           "pinyin": "K",
-          "childArea": [
+          "children": [
             {
               "id": 7210442812242,
               "name": "阿莲区",
@@ -17725,7 +17725,7 @@
           "id": 7214088135938,
           "name": "基隆市",
           "pinyin": "K",
-          "childArea": [
+          "children": [
             {
               "id": 7211582018734,
               "name": "安乐区",
@@ -17767,7 +17767,7 @@
           "id": 7213169128457,
           "name": "金门县",
           "pinyin": "K",
-          "childArea": [
+          "children": [
             {
               "id": 7210682433541,
               "name": "金城镇",
@@ -17804,7 +17804,7 @@
           "id": 7213494932062,
           "name": "连江县",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 7212940359462,
               "name": "北竿乡",
@@ -17831,7 +17831,7 @@
           "id": 7210006260735,
           "name": "苗栗县",
           "pinyin": "M",
-          "childArea": [
+          "children": [
             {
               "id": 7211643313346,
               "name": "大湖乡",
@@ -17928,7 +17928,7 @@
           "id": 7212569630609,
           "name": "南海岛",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 7212535892745,
               "name": "东沙群岛",
@@ -17945,7 +17945,7 @@
           "id": 7213286391187,
           "name": "南投县",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 7213272562316,
               "name": "草屯镇",
@@ -18017,7 +18017,7 @@
           "id": 7213431434442,
           "name": "新北市",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 7213923358308,
               "name": "八里区",
@@ -18169,7 +18169,7 @@
           "id": 7211448320652,
           "name": "澎湖县",
           "pinyin": "P",
-          "childArea": [
+          "children": [
             {
               "id": 7211422361597,
               "name": "白沙乡",
@@ -18206,7 +18206,7 @@
           "id": 7213368433646,
           "name": "屏东县",
           "pinyin": "P",
-          "childArea": [
+          "children": [
             {
               "id": 7211541287570,
               "name": "长治乡",
@@ -18378,7 +18378,7 @@
           "id": 7213392594310,
           "name": "台中市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 7211788704085,
               "name": "北屯区",
@@ -18530,7 +18530,7 @@
           "id": 7211810508871,
           "name": "台南市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 7211754691450,
               "name": "安定区",
@@ -18722,7 +18722,7 @@
           "id": 7211135835616,
           "name": "台北市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 7210744762729,
               "name": "北投区",
@@ -18789,7 +18789,7 @@
           "id": 7210683530667,
           "name": "台东县",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 7210411091341,
               "name": "卑南乡",
@@ -18876,7 +18876,7 @@
           "id": 7210341650825,
           "name": "桃园市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 7210678168526,
               "name": "八德区",
@@ -18948,7 +18948,7 @@
           "id": 7210496253116,
           "name": "宜兰县",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 7212864015669,
               "name": "大同乡",
@@ -19020,7 +19020,7 @@
           "id": 7210805025214,
           "name": "云林县",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 7212138581786,
               "name": "褒忠乡",
@@ -19129,12 +19129,12 @@
       "id": 540000000000,
       "name": "西藏自治区",
       "pinyin": "X",
-      "childArea": [
+      "children": [
         {
           "id": 542500000000,
           "name": "阿里地区",
           "pinyin": "A",
-          "childArea": [
+          "children": [
             {
               "id": 542527000000,
               "name": "措勤县",
@@ -19176,7 +19176,7 @@
           "id": 540300000000,
           "name": "昌都市",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 540326000000,
               "name": "八宿县",
@@ -19238,7 +19238,7 @@
           "id": 540100000000,
           "name": "拉萨市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 540102000000,
               "name": "城关区",
@@ -19310,7 +19310,7 @@
           "id": 540400000000,
           "name": "林芝市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 540402000000,
               "name": "巴宜区",
@@ -19352,7 +19352,7 @@
           "id": 540600000000,
           "name": "那曲市",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 540624000000,
               "name": "安多县",
@@ -19414,7 +19414,7 @@
           "id": 540200000000,
           "name": "日喀则市",
           "pinyin": "R",
-          "childArea": [
+          "children": [
             {
               "id": 540226000000,
               "name": "昂仁县",
@@ -19511,7 +19511,7 @@
           "id": 540500000000,
           "name": "山南市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 540526000000,
               "name": "措美县",
@@ -19585,12 +19585,12 @@
       "id": 650000000000,
       "name": "新疆维吾尔自治区",
       "pinyin": "X",
-      "childArea": [
+      "children": [
         {
           "id": 652900000000,
           "name": "阿克苏地区",
           "pinyin": "A",
-          "childArea": [
+          "children": [
             {
               "id": 652901000000,
               "name": "阿克苏市",
@@ -19642,7 +19642,7 @@
           "id": 654300000000,
           "name": "阿勒泰地区",
           "pinyin": "A",
-          "childArea": [
+          "children": [
             {
               "id": 654301000000,
               "name": "阿勒泰市",
@@ -19684,7 +19684,7 @@
           "id": 652700000000,
           "name": "博尔塔拉蒙古自治州",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 652702000000,
               "name": "阿拉山口市",
@@ -19711,7 +19711,7 @@
           "id": 652800000000,
           "name": "巴音郭楞蒙古自治州",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 652829000000,
               "name": "博湖县",
@@ -19768,7 +19768,7 @@
           "id": 652300000000,
           "name": "昌吉回族自治州",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 652301000000,
               "name": "昌吉市",
@@ -19810,7 +19810,7 @@
           "id": 650500000000,
           "name": "哈密市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 650521000000,
               "name": "巴里坤哈萨克自治县",
@@ -19832,7 +19832,7 @@
           "id": 653200000000,
           "name": "和田地区",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 653225000000,
               "name": "策勒县",
@@ -19879,7 +19879,7 @@
           "id": 650200000000,
           "name": "克拉玛依市",
           "pinyin": "K",
-          "childArea": [
+          "children": [
             {
               "id": 650204000000,
               "name": "白碱滩区",
@@ -19911,7 +19911,7 @@
           "id": 653000000000,
           "name": "克孜勒苏柯尔克孜自治州",
           "pinyin": "K",
-          "childArea": [
+          "children": [
             {
               "id": 653001000000,
               "name": "阿图什市",
@@ -19938,7 +19938,7 @@
           "id": 653100000000,
           "name": "喀什地区",
           "pinyin": "K",
-          "childArea": [
+          "children": [
             {
               "id": 653130000000,
               "name": "巴楚县",
@@ -20005,7 +20005,7 @@
           "id": 650400000000,
           "name": "吐鲁番市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 650402000000,
               "name": "高昌区",
@@ -20027,7 +20027,7 @@
           "id": 654200000000,
           "name": "塔城地区",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 654221000000,
               "name": "额敏县",
@@ -20069,7 +20069,7 @@
           "id": 650100000000,
           "name": "乌鲁木齐市",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 650107000000,
               "name": "达坂城区",
@@ -20131,7 +20131,7 @@
           "id": 659000000000,
           "name": "直辖县",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 659002000000,
               "name": "阿拉尔市",
@@ -20163,7 +20163,7 @@
           "id": 654000000000,
           "name": "伊犁哈萨克自治州",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 654022000000,
               "name": "察布查尔锡伯自治县",
@@ -20227,12 +20227,12 @@
       "id": 530000000000,
       "name": "云南省",
       "pinyin": "Y",
-      "childArea": [
+      "children": [
         {
           "id": 530500000000,
           "name": "保山市",
           "pinyin": "B",
-          "childArea": [
+          "children": [
             {
               "id": 530501000000,
               "name": "市辖区",
@@ -20269,7 +20269,7 @@
           "id": 532300000000,
           "name": "楚雄彝族自治州",
           "pinyin": "C",
-          "childArea": [
+          "children": [
             {
               "id": 532301000000,
               "name": "楚雄市",
@@ -20326,7 +20326,7 @@
           "id": 532900000000,
           "name": "大理白族自治州",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 532924000000,
               "name": "宾川县",
@@ -20393,7 +20393,7 @@
           "id": 533100000000,
           "name": "德宏傣族景颇族自治州",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 533122000000,
               "name": "梁河县",
@@ -20425,7 +20425,7 @@
           "id": 533400000000,
           "name": "迪庆藏族自治州",
           "pinyin": "D",
-          "childArea": [
+          "children": [
             {
               "id": 533422000000,
               "name": "德钦县",
@@ -20447,7 +20447,7 @@
           "id": 532500000000,
           "name": "红河哈尼族彝族自治州",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 532501000000,
               "name": "个旧市",
@@ -20519,7 +20519,7 @@
           "id": 530100000000,
           "name": "昆明市",
           "pinyin": "K",
-          "childArea": [
+          "children": [
             {
               "id": 530181000000,
               "name": "安宁市",
@@ -20601,7 +20601,7 @@
           "id": 530700000000,
           "name": "丽江市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 530702000000,
               "name": "古城区",
@@ -20638,7 +20638,7 @@
           "id": 530900000000,
           "name": "临沧市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 530927000000,
               "name": "沧源佤族自治县",
@@ -20690,7 +20690,7 @@
           "id": 533300000000,
           "name": "怒江傈僳族自治州",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 533323000000,
               "name": "福贡县",
@@ -20717,7 +20717,7 @@
           "id": 530800000000,
           "name": "普洱市",
           "pinyin": "P",
-          "childArea": [
+          "children": [
             {
               "id": 530823000000,
               "name": "景东彝族自治县",
@@ -20779,7 +20779,7 @@
           "id": 530300000000,
           "name": "曲靖市",
           "pinyin": "Q",
-          "childArea": [
+          "children": [
             {
               "id": 530325000000,
               "name": "富源县",
@@ -20836,7 +20836,7 @@
           "id": 532600000000,
           "name": "文山壮族苗族自治州",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 532628000000,
               "name": "富宁县",
@@ -20883,7 +20883,7 @@
           "id": 532800000000,
           "name": "西双版纳傣族自治州",
           "pinyin": "X",
-          "childArea": [
+          "children": [
             {
               "id": 532801000000,
               "name": "景洪市",
@@ -20905,7 +20905,7 @@
           "id": 530400000000,
           "name": "玉溪市",
           "pinyin": "Y",
-          "childArea": [
+          "children": [
             {
               "id": 530422000000,
               "name": "澄江县",
@@ -20962,7 +20962,7 @@
           "id": 530600000000,
           "name": "昭通市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 530624000000,
               "name": "大关县",
@@ -21031,12 +21031,12 @@
       "id": 330000000000,
       "name": "浙江省",
       "pinyin": "Z",
-      "childArea": [
+      "children": [
         {
           "id": 330100000000,
           "name": "杭州市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 330108000000,
               "name": "滨江区",
@@ -21113,7 +21113,7 @@
           "id": 330500000000,
           "name": "湖州市",
           "pinyin": "H",
-          "childArea": [
+          "children": [
             {
               "id": 330523000000,
               "name": "安吉县",
@@ -21150,7 +21150,7 @@
           "id": 330400000000,
           "name": "嘉兴市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 330424000000,
               "name": "海盐县",
@@ -21197,7 +21197,7 @@
           "id": 330700000000,
           "name": "金华市",
           "pinyin": "J",
-          "childArea": [
+          "children": [
             {
               "id": 330783000000,
               "name": "东阳市",
@@ -21254,7 +21254,7 @@
           "id": 331100000000,
           "name": "丽水市",
           "pinyin": "L",
-          "childArea": [
+          "children": [
             {
               "id": 331122000000,
               "name": "缙云县",
@@ -21311,7 +21311,7 @@
           "id": 330200000000,
           "name": "宁波市",
           "pinyin": "N",
-          "childArea": [
+          "children": [
             {
               "id": 330206000000,
               "name": "北仑区",
@@ -21373,7 +21373,7 @@
           "id": 330800000000,
           "name": "衢州市",
           "pinyin": "Q",
-          "childArea": [
+          "children": [
             {
               "id": 330822000000,
               "name": "常山县",
@@ -21415,7 +21415,7 @@
           "id": 330600000000,
           "name": "绍兴市",
           "pinyin": "S",
-          "childArea": [
+          "children": [
             {
               "id": 330603000000,
               "name": "柯桥区",
@@ -21457,7 +21457,7 @@
           "id": 331000000000,
           "name": "台州市",
           "pinyin": "T",
-          "childArea": [
+          "children": [
             {
               "id": 331003000000,
               "name": "黄岩区",
@@ -21514,7 +21514,7 @@
           "id": 330300000000,
           "name": "温州市",
           "pinyin": "W",
-          "childArea": [
+          "children": [
             {
               "id": 330327000000,
               "name": "苍南县",
@@ -21586,7 +21586,7 @@
           "id": 330900000000,
           "name": "舟山市",
           "pinyin": "Z",
-          "childArea": [
+          "children": [
             {
               "id": 330902000000,
               "name": "定海区",
@@ -21617,3 +21617,4 @@
       ]
     }
   ]
+  

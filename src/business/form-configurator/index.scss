@@ -1,0 +1,108 @@
+.required {
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "*";
+      top: 5px;
+      right: -30px;
+      color: #ff6d6d;
+    }
+}
+
+.root {
+    .list {
+        margin: 0 30px;
+        .tip {
+          width: 690px;
+          min-height: 56px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 40px;
+          border-radius: 8px;
+          color: #ed7603;
+          background: #ffeab1;
+          font-size: 32px;
+          line-height: 1.5;
+        }
+        .at-textarea {
+          border: none;
+          padding: 0;
+        }
+        .card-item {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          font-size: 32px;
+          font-family: PingFangSC-Medium, PingFang SC;
+          font-weight: 500;
+          color: #000000;
+          .card-right {
+            width: 400rpx;
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: right;
+            .disabled {
+              color: #999999;
+            }
+          }
+          .card-item-content {
+              flex: 1;
+              background-color: red;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              .label {
+                color: #000000;
+              }
+              .placeholder {
+                color: #999999;
+                width: 400px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                text-align: right;
+              }
+          }
+          .selector {
+            color: #000000;
+          }
+          .input {
+            text-align: right;
+          }
+          .hint {
+            font-size: 32px;
+            font-family: PingFangSC-Medium, PingFang SC;
+            color: #999999;
+          }
+          .mt10 {
+            margin-top: 10px;
+          }
+        }
+        .headline {
+          display: inline-block;
+          margin-bottom: 24px;
+          font-size: 32px;
+          font-family: PingFangSC-Medium, PingFang SC;
+          font-weight: 500;
+          color: #000000;
+          line-height: 45px;
+        }
+        .card-photo {
+          margin-bottom: 20px;
+          color: #c7c8c8;
+        
+          .placeholder-txt {
+            margin: -20px 0 10px;
+            height: 33px;
+            font-size: 24px;
+            font-family: PingFangSC-Regular, PingFang SC;
+            font-weight: 400;
+            color: #999999;
+            line-height: 33px;
+          }
+        }
+    }
+}

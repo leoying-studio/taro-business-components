@@ -9,3 +9,4 @@ export default {
     navigationBarTextStyle: 'black'
   }
 }
+

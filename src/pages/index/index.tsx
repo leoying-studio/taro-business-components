@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text } from '@tarojs/components'
-import FormConfigurator from './../form-configurator'
+import FormConfigurator from './../../form-configurator'
+import { BasicDataSource } from './constant'
 import './index.scss'
 
 export default class Index extends Component {
@@ -18,7 +19,12 @@ export default class Index extends Component {
   render () {
     return (
       <View className='index'>
-        <Text>Hello world!</Text>
+       <FormConfigurator
+						defaultValues={{}}
+						onValueChange={(values) => {
+							// setData({...data, ...values});
+						}}
+						dataSource={BasicDataSource} />
       </View>
     )
   }

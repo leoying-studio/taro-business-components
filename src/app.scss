@@ -1,0 +1,38 @@
+// 全局css样式
+@import "./var.scss";
+@import "~taro-ui/dist/style/components/button.scss";
+@import "~taro-ui/dist/style/components/image-picker.scss";
+@import "~taro-ui/dist/style/components/progress.scss";
+@import "~taro-ui/dist/style/components/icon.scss";
+@import "~taro-ui/dist/style/components/loading.scss";
+@import "~taro-ui/dist/style/components/toast.scss";
+@import "~taro-ui/dist/style/components/message.scss";
+@import "./assets//fonts/iconfont.css";
+@import "./assets/styles/utils.scss";
+
+.card {
+  // width: 690px;
+  padding: 30px 32px;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+
+.btn {
+  width: 500px;
+  height: 88px;
+  @include contentCenter();
+  border-radius: 16px;
+  background-color: $primaryColor;
+  color: white;
+}
+
+.btn-sm {
+  width: 136px;
+  height: 56px;
+  border-radius: 8px;
+  font-size: 32px;
+}
+
+.btn-success {
+  background-color: #3bb372;
+}
