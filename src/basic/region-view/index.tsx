@@ -1,35 +1,53 @@
 
-import React, { Children, useEffect, useMemo, useState } from "react";
+import React, { Children, CSSProperties, useEffect, useMemo, useState } from "react";
 import Taro from "@tarojs/taro";
 import { PickerView, PickerViewColumn, View, Button } from "@tarojs/components";
 import { PickerItemAttribute } from "../../interface";
+import tool from './tool'
 
-export interface CityProps {
-  extendData?: [], 
+export interface RegionProps {
+  unstinted?: boolean, 
   column?: number
   defaultValue?: number | string
-  onChange: (value) => void
+  onSelected: (value) => void
 }
 
-const CityView: React.FC<CityProps> = ({
+const RegionView: React.FC<RegionProps> = ({
   defaultValue = "",
   column = 3,
   onChange
 }) => {
   const [values, setValues] = useState<number[]>([0, 0, 0]);
-  const dataSource = findSource(values);
+  const dataSource = tool.findSource(values);
 
   useEffect(() => {
     let indexs: number[] = [];
     if (defaultValue) {
-      indexs = findCityIndex(defaultValue, column);
+      indexs = tool.findIndex(defaultValue, column);
       setValues(indexs);
     }
-    const cur = findCityCurrent(indexs as number[], column);
+    const cur = tool.findCurrent(indexs as number[]);
     onChange && onChange(cur);
   }, [defaultValue, column])
 
-  const getStyle = function (index, col) {
+  const onPickerViewChange = function(e) {
+      const [a, b, c] = e.detail.value;
+      const [x, y, z] = values;
+      let nextValues = e.detail.value;
+      if (a !== x) {
+        nextValues = [a, 0, 0];
+      } else if (b !== y) {
+        nextValues = [a, b, 0];
+      } else if (c > dataSource.area.length - 1) {
+        nextValues = [a, b, dataSource.area.length - 1];
+      }
+
+      setValues(nextValues);
+      const cur = tool.findCurrent(nextValues);
+      onChange && onChange(cur);
+  }
+
+  const getStyle = function (index, col): CSSProperties {
     const active = index === values[col];
     return {
       overflow: 'hidden',
@@ -50,22 +68,7 @@ const CityView: React.FC<CityProps> = ({
           height: 250 + 'rpx'
         }}
         indicatorStyle='height: 34px;'
-        onChange={e => {
-          const [a, b, c] = e.detail.value;
-          const [x, y, z] = values;
-          let nextValues = e.detail.value;
-          if (a !== x) {
-            nextValues = [a, 0, 0];
-          } else if (b !== y) {
-            nextValues = [a, b, 0];
-          } else if (c > dataSource.area.length - 1) {
-            nextValues = [a, b, dataSource.area.length - 1];
-          }
-
-          setValues(nextValues);
-          const cur = findCityCurrent(nextValues, column);
-          onChange && onChange(cur);
-        }}
+        onChange={onPickerViewChange}
         value={values}
       >
         <PickerViewColumn style={{ textAlign: 'center' }}>
@@ -73,7 +76,7 @@ const CityView: React.FC<CityProps> = ({
             return (
               <View
                 style={getStyle(index, 0)}
-                key={item.value}
+                key={item?.value}
               >
                 {item.label}
               </View>
@@ -110,4 +113,5 @@ const CityView: React.FC<CityProps> = ({
     </View>
   );
 };
-export default CityView;
+
+export default RegionView;

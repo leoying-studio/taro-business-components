@@ -1,5 +1,5 @@
 import { View, PageMeta } from '@tarojs/components';
-import React, { Fragment, ReactNode, useCallback, useRef, useState } from 'react';
+import React, { CSSProperties, Fragment, ReactNode, useCallback, useRef, useState } from 'react';
 
 interface OverlayProps {
     popup: (Comp: React.FC, options?:TopViewOptions ) => Promise<void>
@@ -17,6 +17,15 @@ export const TopProvider = function(props) {
     // 解决冒泡事件问题
     const cushion = useRef(false);
 
+    const topViewStyle: CSSProperties = {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        bottom: 0,
+        right: 0,
+        backgroundColor: 'rgba(0,0,0,.5)'
+    };
+
     const updateCushion = function() {
         cushion.current = true;
         clearTimeout(timer as NodeJS.Timeout);
@@ -24,12 +33,13 @@ export const TopProvider = function(props) {
             cushion.current = false;
         }, 400)
     }
+
     
     const popup = useCallback((Comp: React.FC, options: TopViewOptions = {}):Promise<undefined> => {
         const {closeable = true} = options;
         return new Promise((resolve) => {
             const com =(
-                <View className="top-view" onClick={() => {
+                <View style={topViewStyle}  onClick={() => {
                     if (!cushion.current && closeable) {
                         resolve();
                         setTopView(null);

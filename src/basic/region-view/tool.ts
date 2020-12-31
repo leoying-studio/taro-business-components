@@ -1,6 +1,5 @@
 import dataSource from './data-source.json';
 
-
 export default class {
     
     static findSource(values: number[]) {

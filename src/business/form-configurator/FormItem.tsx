@@ -6,7 +6,7 @@ import { AtIcon, AtSwitch, AtTextarea } from "taro-ui";
 import { InputProps } from "@tarojs/components/types/Input";
 import { getAgeRange, getMonthRange, shallowEqual } from "./shared-utils";
 import ImageUploader from "../basic/image-uploader";
-import CityPicker from '../city-picker';
+import CityPicker from '../basic/region-View';
 import { PickerDateProps, PickerMultiSelectorProps, PickerSelectorProps } from "@tarojs/components/types/Picker";
 
 interface FormItemProps {

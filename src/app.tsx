@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import './app.scss'
 import { TopProvider } from './hooks/useTopView'
 
@@ -22,4 +22,5 @@ class App extends Component {
   }
 }
 
-export default App
+export default App;
+
