@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useMemo, useRef, useState } from "react";
-import { View, Text, Picker, Input, CommonEventFunction, BaseEventOrig } from "@tarojs/components";
+import { View, Text, Picker, Input, CommonEventFunction, BaseEventOrig, CommonEvent } from "@tarojs/components";
 import Taro, { render, useRouter } from "@tarojs/taro";
 import { ConfigurationItem } from "./interface";
 import { AtIcon, AtSwitch, AtTextarea } from "taro-ui";
@@ -10,45 +10,26 @@ import CityPicker from '../basic/region-View';
 import { PickerDateProps, PickerMultiSelectorProps, PickerSelectorProps } from "@tarojs/components/types/Picker";
 
 interface FormItemProps {
-    onChange: (e?: string | 
-         BaseEventOrig<InputProps.inputEventDetail |
-         PickerDateProps.onChangeEventDetail> | 
-         PickerSelectorProps.onChangeEventDetail|
-         PickerMultiSelectorProps.onChangeEventDetail |
-         BaseEventOrig<PickerMultiSelectorProps.onChangeEventDetail> |
-         PickerSelectorProps.onChangeEventDetail|
-         BaseEventOrig<PickerSelectorProps.onChangeEventDetail> |
-         boolean, 
-        item?: ConfigurationItem) => void,
+    onChoose: (e?: CommonEvent, item?: ConfigurationItem, handler?: string) => void,
     data: ConfigurationItem,
-    values: {
-        [k: string]: string | number
-    }
-    defaultValues: { [k: string]: string | number},
-    disabled?: boolean
+    value: (string | number)[]
 }
 /**
  * 使用React.memo的主要作用是缓存，减少渲染, 注意useCallbcak的使用
  */
-const FormItem = React.memo(({data, disabled, values, defaultValues, onChange}: FormItemProps) => {
-
-     const [loadWidget, setLoadWidget] = useState(false);
-     const timer = useRef<NodeJS.Timeout | number>();
-
-     // 使用懒加载加快首次展示速度
-     useEffect(() => {
-       timer.current = setTimeout(() => {
-            setLoadWidget(true)
-        }, 500);
-        return () => clearTimeout(timer.current as number);
-     }, [])
-
+const FormItem = React.memo(({data, value = [], onChoose}: FormItemProps) => {
      // 设置控件懒加载
      const {type, props = {}, options = []} = data.widget || {};
-     // 字段值
-     const field = data.field;
-     // 字段value
-     const value = values[field];
+     const [widgetValue, setWidgetValue] = useState(value);
+     const [valueA, valueB] = widgetValue;
+
+     useEffect(() => {
+        setWidgetValue(value);
+     }, [value])
+
+     const onChange = function(e, value?: string) {
+
+     }
 
      const renderRight = () => {
         if (type === 'input') {
@@ -56,47 +37,34 @@ const FormItem = React.memo(({data, disabled, values, defaultValues, onChange}: 
                 {...props}
                 className="input"
                 value={value || ''}
-                onInput={(e) => onChange(e, data)}></Input>
+                onInput={onChange}></Input>
         }
         if (type === 'switch') {
-            return <AtSwitch checked={!!value} color="#FF345F" onChange={(e) => {
-                onChange(e, data)
-            }} />
+            return <AtSwitch checked={!!value} color="#FF345F" onChange={onChange} />
         }
     
         const getClass = function() {
             const className = typeof value !== 'undefined' ? 'placeholder selector' : 'placeholder';
-            if (disabled || props.disabled) {
-                return 'disabled' +' '+ className;
-            }
             return className;
         }
-    
-        const option = options.find((option) => {
-            return option.value === Number(value)
-        });
-    
-        const hideArrow = data.readonly || type === 'textarea' || type === 'input';
-    
+        const option = options.find((option) => {option.value === Number(value)});
+        const hideArrows = data.readonly;
         let content = option ? option.label : value ? value : data.hint;
         
         if (type === 'city-picker') {
-            const name = values[data.mapField as string] as string;
-            const code = value;
-            if (name) {
-                content = name?.split(',').join('-');
+            if (valueB) {
+                content = (valueB as string).split(',').join('-');
             }
-            if (code === '0') {
+            if (!valueA) {
                 content = '不限'
             }
         }
     
-        if (type === 'age-range-picker') {
+        if (type === 'age-picker') {
             if (value) {
-                const {minAge, maxAge} = values;
                 const { start, end } = getAgeRange();
-                const minOpt = start.find(item => item.value === minAge);
-                const maxOpt = end.find(item => item.value === maxAge);
+                const minOpt = start.find(item => item.value === valueA);
+                const maxOpt = end.find(item => item.value === valueB);
                 content = minOpt?.label + '-' + maxOpt?.label;
                 if (minOpt?.value === start[1].value && maxOpt?.value === end[end.length -1].value) {
                     content = '不限'
@@ -107,7 +75,7 @@ const FormItem = React.memo(({data, disabled, values, defaultValues, onChange}: 
             <View 
                 style={{display: 'flex', alignItems: 'center'}} className="card-right">
                  <Text className={getClass()}>{content}</Text>
-                 {hideArrow ? null : <AtIcon value='chevron-right' size='18' color='#999999'></AtIcon>}
+                 {hideArrows ? null : <AtIcon value='chevron-right' size='18' color='#999999'></AtIcon>}
             </View>
         )
      }
@@ -124,13 +92,6 @@ const FormItem = React.memo(({data, disabled, values, defaultValues, onChange}: 
          </View>
      )
 
-     /**
-      * disabled
-      */
-     if (disabled || !loadWidget) {
-         return innerView;
-     }
-
      if (type === 'picker') {
          let defaultValue = pickerValue < 0 ? 0 : pickerValue;
          if (props.value && !defaultValue) {
@@ -144,7 +105,7 @@ const FormItem = React.memo(({data, disabled, values, defaultValues, onChange}: 
                  value={defaultValue}
                  range={options} 
                  rangeKey="label"
-                 onChange={(e) => onChange(e, data)}>
+                 onChange={onChange}>
                  {innerView}
              </Picker>
          )
@@ -152,36 +113,35 @@ const FormItem = React.memo(({data, disabled, values, defaultValues, onChange}: 
          return (
              <Picker
                  mode="date"
-                 value={value as string}
-                 onChange={(e) => onChange(e, data)}>
+                 value={valueA as string}
+                 onChange={onChange}>
                  {innerView}
              </Picker>
          )
      } else if (type === 'city-picker') {
          const { number } = props;
-         const defaultVal = value ? value : number === 2 ?  null;
+        //  const defaultVal = value ? value : number === 2 ?  null;
          return (
              <CityPicker
                  {...props}
-                 id={defaultVal}
-                 onGetRegion={(e) => onChange(e, data)}>
+                //  id={defaultVal}
+                 onGetRegion={(e) => onChange(valueA, e)}>
                  {innerView}
              </CityPicker>
          )
      } else if (type === 'image-picker') {
-         const uri = defaultValues[data.field] || '';
          return (
              <View className="card card-photo">
                  <View className={statiCls}>{data.name}（最多{props.count}张）</View>
                  <ImageUploader 
-                     onChange={(e) => onChange(e, data)}
-                     defaultUris={uri as string} />
+                     onChange={onChange}
+                     defaultUris={valueA as string} />
              </View>
          )
-     } else if (type === 'date-month') {
+     } else if (type === 'date-month-picker') {
          const [years, months] = getMonthRange();
          const convertVal = function() {
-             const [y, m]= (value as string)?.split('-');
+            const [y, m]= (valueA as string)?.split('-');
             return  [ Number(y) - 1940, Number(m) - 1]
          }
          const val =  value ? convertVal() : [50, 0]; 
@@ -191,7 +151,7 @@ const FormItem = React.memo(({data, disabled, values, defaultValues, onChange}: 
                  mode="multiSelector"
                  value={val}
                  range={[years, months]} rangeKey="label"
-                 onChange={(e) => onChange(e, data)}>
+                 onChange={onChange}>
             {innerView}
          </Picker>
          )
@@ -203,14 +163,14 @@ const FormItem = React.memo(({data, disabled, values, defaultValues, onChange}: 
                      <AtTextarea
                      value={value || ''}
                      {...props} 
-                         onChange={(e) => onChange(e, data)}></AtTextarea>
+                         onChange={onChange}></AtTextarea>
                  </View>
               </View>
          )
-     } else if (type === 'age-range-picker') {
+     } else if (type === 'age-picker') {
          const {start, end} = getAgeRange();
-         const minAge = values['minAge'] ? (values['minAge'] as number) - 17 : 0;
-         const maxAge = values['maxAge'] ? (values['maxAge'] as number) - 18 : 0;
+         const minAge = valueA ? (valueA as number) - 17 : 0;
+         const maxAge = valueB ? (valueB as number) - 18 : 0;
          const defaultVal = [minAge, maxAge];
          return (
              <Picker
@@ -218,7 +178,7 @@ const FormItem = React.memo(({data, disabled, values, defaultValues, onChange}: 
                  rangeKey="label"
                  value={defaultVal}
                  range={[start, end]}
-                 onChange={(e) => onChange(e, data)}>
+                 onChange={onChange}>
                  {innerView}
              </Picker>
          )

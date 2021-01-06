@@ -1,6 +1,6 @@
 // 提供通用底层支持
 
-export default class PickerUtils {
+export default class PickerTools {
 
     static findIndex(value: string | number, dataSource: []) {
         const tier = {};

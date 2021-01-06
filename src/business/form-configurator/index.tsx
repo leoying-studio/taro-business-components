@@ -18,11 +18,6 @@ const FormConfigurator:React.FC<FormConfigurationProps> = function({dataSource,
     disabled}, ref) {
 
     const [values, setValues] = useState({});
-    const cityRef = useState<CityPicker>();
-    // 字段展示值的映射
-    const fieldMapRef = useRef({});
-
-    // console.log(values, 'values');
 
     /**
      * 仅仅用作调用方更新默认值
@@ -36,39 +31,39 @@ const FormConfigurator:React.FC<FormConfigurationProps> = function({dataSource,
         });
     }, [defaultValues])
 
-    const validate = function(callback: (status: boolean, info: {msg?: string, field?: string}, values: {}) => void) {
-        const validRules = function(rules:Rule[], value: string) {
-            for (let rule of rules) {
-                if(!rule.test(value)) {
-                    return rule;
-                }
-            }
-        }   
-        for (let item of dataSource) {
-            let value = values[item.field];
-            // 判空处理
-            if (item.required) {
-                if (typeof value === 'undefined') {
-                    let msg = item.name + '不能为空';
-                    return callback(false, {msg, field: item.field}, values);
-                }
-            }
-            // 是否存在验证规则
-            if (Array.isArray(item.rules)) {
-                let rule = validRules(item.rules, value);
-                if (rule) {
-                    return callback(false, {msg: rule.message, field: item.field}, values);
-                }
-            }
-        }
-        callback(true, {}, values);
-    }   
+    // const validate = function(callback: (status: boolean, info: {msg?: string, field?: string}, values: {}) => void) {
+    //     const validRules = function(rules:Rule[], value: string) {
+    //         for (let rule of rules) {
+    //             if(!rule.test(value)) {
+    //                 return rule;
+    //             }
+    //         }
+    //     }   
+    //     for (let item of dataSource) {
+    //         let value = values[item.field];
+    //         // 判空处理
+    //         if (item.required) {
+    //             if (typeof value === 'undefined') {
+    //                 let msg = item.name + '不能为空';
+    //                 return callback(false, {msg, field: item.field}, values);
+    //             }
+    //         }
+    //         // 是否存在验证规则
+    //         if (Array.isArray(item.rules)) {
+    //             let rule = validRules(item.rules, value);
+    //             if (rule) {
+    //                 return callback(false, {msg: rule.message, field: item.field}, values);
+    //             }
+    //         }
+    //     }
+    //     callback(true, {}, values);
+    // }   
 
-    useImperativeHandle(ref, () => {
-        return {
-            validate
-        }
-    })
+    // useImperativeHandle(ref, () => {
+    //     return {
+    //         validate
+    //     }
+    // })
 
    
     const onChange = useCallback(function(e, item) {

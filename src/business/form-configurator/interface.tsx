@@ -12,10 +12,10 @@ type WidgetType =
  'date-picker' | 
  'city-picker' | 
  'textarea' |
- 'age-range-picker'|
+ 'age-picker'|
  'input' | 
- 'date-month';
-
+ 'date-month-picker';
+ 
 export interface FormItemOptions {
     label: string,
     value: string | number
@@ -37,20 +37,9 @@ export interface ConfigurationItem {
 	 */
 	required?: boolean 
 	/**
-	 * 服务端对应的字段名称
+	 * 服务端对应的字段名称, 如果有范围值比如minAge, maxAge 等可以按照顺序填写多个
 	 */
-	field: string
-	/**
-	 * 映射的key
-	 */
-	mapField?: string
-	/**
-	 * 跳转的目标屏幕
-	 */
-	targetScreen?: {
-		name: string,
-		params: any
-	}
+	fields: string[]
 	/**
 	 * 是否只读, 不可操作和修改
 	 */
@@ -83,6 +72,7 @@ export interface ConfigurationItem {
 
 
 export interface FormConfigurationProps {
+	jointsComponents: [],
 	/**
 	 * 禁用
 	 */
