@@ -3,32 +3,29 @@ import React, { Children, CSSProperties, useEffect, useMemo, useState } from "re
 import Taro from "@tarojs/taro";
 import { PickerView, PickerViewColumn, View, Button } from "@tarojs/components";
 import { PickerItemAttribute } from "../../interface";
-import tool from './tool'
-
+import {RegionTools, PickerTools} from './../_tools';
+import PickerPanel from "../picker-panel";
+import './index.scss'
 export interface RegionProps {
-  unstinted?: boolean, 
   column?: number
-  defaultValue?: number | string
-  onSelected: (value) => void
+  code?: number | string
+  onChoose: (value, handleType?: string) => void
 }
 
 const RegionView: React.FC<RegionProps> = ({
-  defaultValue = "",
+  code = "",
   column = 3,
-  onChange
+  onChoose
 }) => {
   const [values, setValues] = useState<number[]>([0, 0, 0]);
-  const dataSource = tool.findSource(values);
+  const dataSource = RegionTools.findSource(values);
 
   useEffect(() => {
-    let indexs: number[] = [];
-    if (defaultValue) {
-      indexs = tool.findIndex(defaultValue, column);
+    if (code) {
+      let indexs = RegionTools.findIndex(code, column);
       setValues(indexs);
     }
-    const cur = tool.findCurrent(indexs as number[]);
-    onChange && onChange(cur);
-  }, [defaultValue, column])
+   }, [code, column])
 
   const onPickerViewChange = function(e) {
       const [a, b, c] = e.detail.value;
@@ -41,10 +38,9 @@ const RegionView: React.FC<RegionProps> = ({
       } else if (c > dataSource.area.length - 1) {
         nextValues = [a, b, dataSource.area.length - 1];
       }
-
       setValues(nextValues);
-      const cur = tool.findCurrent(nextValues);
-      onChange && onChange(cur);
+      const cur = RegionTools.findCurrent(nextValues);
+      onChoose && onChoose(cur, 'onChange');
   }
 
   const getStyle = function (index, col): CSSProperties {
@@ -62,7 +58,12 @@ const RegionView: React.FC<RegionProps> = ({
   }
 
   return (
-    <View>
+    <PickerPanel 
+      onCancel={() => {}}
+      onConfirm={() => {
+        const cur = RegionTools.findCurrent(values);
+        onChoose && onChoose(cur, 'onChange');
+      }}>
       <PickerView
         style={{
           height: 250 + 'rpx'
@@ -76,9 +77,9 @@ const RegionView: React.FC<RegionProps> = ({
             return (
               <View
                 style={getStyle(index, 0)}
-                key={item?.value}
+                key={item.id as number}
               >
-                {item.label}
+                {item?.name}
               </View>
             );
           })}
@@ -88,9 +89,9 @@ const RegionView: React.FC<RegionProps> = ({
             return (
               <View
                 style={getStyle(index, 1)}
-                key={item.value}
+                key={item.id}
               >
-                {item.label}
+                {item.name}
               </View>
             );
           })}
@@ -101,16 +102,16 @@ const RegionView: React.FC<RegionProps> = ({
               return (
                 <View
                   style={getStyle(index, 2)}
-                  key={item.value}
+                  key={item.id}
                 >
-                  {item.label}
+                  {item.name}
                 </View>
               );
             })}
           </PickerViewColumn> : null
         }
       </PickerView>
-    </View>
+    </PickerPanel>
   );
 };
 

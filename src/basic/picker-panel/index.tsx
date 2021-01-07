@@ -34,6 +34,7 @@ const PickerPanel: React.FC<PickerOuterProps> = function (props) {
    paddingTop: '20rpx',
    paddingBottom: '20rpx',
    fontSize: '30rpx',
+   borderBottom: 'solid 1px #e8e8e8',
    backgroundColor: 'white'
  };
 
@@ -52,8 +53,12 @@ const PickerPanel: React.FC<PickerOuterProps> = function (props) {
           取消
         </Text>
         <Text
+          style={{
+            color: '#337ab7'
+          }}
           onClick={() => {
             props.onConfirm && props.onConfirm();
+            overlay.close();
           }}
         >
           确定

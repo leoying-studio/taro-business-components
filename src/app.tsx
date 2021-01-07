@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './app.scss'
+import 'taro-ui/dist/style/index.scss' 
 import { TopProvider } from './hooks/useTopView'
 
 class App extends Component {

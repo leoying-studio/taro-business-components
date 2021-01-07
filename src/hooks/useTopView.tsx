@@ -1,7 +1,6 @@
 import { View, PageMeta } from '@tarojs/components';
 import React, { CSSProperties, Fragment, ReactNode, useCallback, useRef, useState } from 'react';
-
-interface OverlayProps {
+export interface TopViewProps {
     popup: (Comp: React.FC, options?:TopViewOptions ) => Promise<void>
     close: () => void
     topView: React.ReactNode
@@ -11,7 +10,7 @@ export interface TopViewOptions {
     closeable?: boolean
 }
 let timer: NodeJS.Timeout | Number = 0;
-export const TopContext = React.createContext({} as OverlayProps);
+export const TopContext = React.createContext({} as TopViewProps);
 export const TopProvider = function(props) {
     const [topView, setTopView] = useState<React.ReactNode>(null);
     // 解决冒泡事件问题
