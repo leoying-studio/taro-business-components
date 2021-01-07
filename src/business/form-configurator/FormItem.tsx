@@ -8,9 +8,10 @@ import { getAgeRange, getMonthRange, shallowEqual } from "./shared-utils";
 import ImageUploader from "../basic/image-uploader";
 import CityPicker from '../basic/region-View';
 import { PickerDateProps, PickerMultiSelectorProps, PickerSelectorProps } from "@tarojs/components/types/Picker";
+import { useOverlay } from "src/hooks/useOverlay";
 
 interface FormItemProps {
-    onChoose: (e?: CommonEvent, item?: ConfigurationItem, handler?: string) => void,
+    onChoose: (e?: any, item?: ConfigurationItem, handler?: string) => void,
     data: ConfigurationItem,
     value: (string | number)[]
 }
@@ -22,13 +23,16 @@ const FormItem = React.memo(({data, value = [], onChoose}: FormItemProps) => {
      const {type, props = {}, options = []} = data.widget || {};
      const [widgetValue, setWidgetValue] = useState(value);
      const [valueA, valueB] = widgetValue;
+     const overlay = useOverlay();
 
      useEffect(() => {
         setWidgetValue(value);
      }, [value])
 
-     const onChange = function(e, value?: string) {
 
+     const onClickItem = function() {
+        // 弹出选择器
+        
      }
 
      const renderRight = () => {
@@ -37,10 +41,10 @@ const FormItem = React.memo(({data, value = [], onChoose}: FormItemProps) => {
                 {...props}
                 className="input"
                 value={value || ''}
-                onInput={onChange}></Input>
+                onInput={(e) => onChoose(e, data, 'input')}></Input>
         }
         if (type === 'switch') {
-            return <AtSwitch checked={!!value} color="#FF345F" onChange={onChange} />
+            return <AtSwitch checked={!!value} color="#FF345F" onChange={(value) => onChoose(value, data, 'switch')} />
         }
     
         const getClass = function() {
@@ -60,7 +64,7 @@ const FormItem = React.memo(({data, value = [], onChoose}: FormItemProps) => {
             }
         }
     
-        if (type === 'age-picker') {
+        if (type === 'age-range-picker') {
             if (value) {
                 const { start, end } = getAgeRange();
                 const minOpt = start.find(item => item.value === valueA);
@@ -84,7 +88,7 @@ const FormItem = React.memo(({data, value = [], onChoose}: FormItemProps) => {
      const spaceCls = data.required ? 'label required' : 'label';
      const statiCls =  data.required ? 'headline required' : 'headline';
      const innerView = (
-         <View className="card card-item">
+         <View className="card card-item" onClick={onClickItem}>
              <View>
                  <Text className={spaceCls}>{data.name}</Text>
              </View>
@@ -92,97 +96,97 @@ const FormItem = React.memo(({data, value = [], onChoose}: FormItemProps) => {
          </View>
      )
 
-     if (type === 'picker') {
-         let defaultValue = pickerValue < 0 ? 0 : pickerValue;
-         if (props.value && !defaultValue) {
-             defaultValue = (options).findIndex((option) => {
-                 return option.value === props.value;
-             })
-         }
-         return (
-             <Picker
-                 mode="selector"
-                 value={defaultValue}
-                 range={options} 
-                 rangeKey="label"
-                 onChange={onChange}>
-                 {innerView}
-             </Picker>
-         )
-     } else if (type === 'date-picker') {
-         return (
-             <Picker
-                 mode="date"
-                 value={valueA as string}
-                 onChange={onChange}>
-                 {innerView}
-             </Picker>
-         )
-     } else if (type === 'city-picker') {
-         const { number } = props;
-        //  const defaultVal = value ? value : number === 2 ?  null;
-         return (
-             <CityPicker
-                 {...props}
-                //  id={defaultVal}
-                 onGetRegion={(e) => onChange(valueA, e)}>
-                 {innerView}
-             </CityPicker>
-         )
-     } else if (type === 'image-picker') {
-         return (
-             <View className="card card-photo">
-                 <View className={statiCls}>{data.name}（最多{props.count}张）</View>
-                 <ImageUploader 
-                     onChange={onChange}
-                     defaultUris={valueA as string} />
-             </View>
-         )
-     } else if (type === 'date-month-picker') {
-         const [years, months] = getMonthRange();
-         const convertVal = function() {
-            const [y, m]= (valueA as string)?.split('-');
-            return  [ Number(y) - 1940, Number(m) - 1]
-         }
-         const val =  value ? convertVal() : [50, 0]; 
-         // 多选日期
-         return (
-             <Picker
-                 mode="multiSelector"
-                 value={val}
-                 range={[years, months]} rangeKey="label"
-                 onChange={onChange}>
-            {innerView}
-         </Picker>
-         )
-     } else if (type === 'textarea') {
-         return (
-             <View className="card">
-                 <View className={statiCls}>{data.name}</View>
-                 <View style={{marginTop: '10rpx'}}>
-                     <AtTextarea
-                     value={value || ''}
-                     {...props} 
-                         onChange={onChange}></AtTextarea>
-                 </View>
-              </View>
-         )
-     } else if (type === 'age-picker') {
-         const {start, end} = getAgeRange();
-         const minAge = valueA ? (valueA as number) - 17 : 0;
-         const maxAge = valueB ? (valueB as number) - 18 : 0;
-         const defaultVal = [minAge, maxAge];
-         return (
-             <Picker
-                 mode="multiSelector"
-                 rangeKey="label"
-                 value={defaultVal}
-                 range={[start, end]}
-                 onChange={onChange}>
-                 {innerView}
-             </Picker>
-         )
-     }
+    //  if (type === 'picker') {
+    //      let defaultValue = pickerValue < 0 ? 0 : pickerValue;
+    //      if (props.value && !defaultValue) {
+    //          defaultValue = (options).findIndex((option) => {
+    //              return option.value === props.value;
+    //          })
+    //      }
+    //      return (
+    //          <Picker
+    //              mode="selector"
+    //              value={defaultValue}
+    //              range={options} 
+    //              rangeKey="label"
+    //              onChange={onChange}>
+    //              {innerView}
+    //          </Picker>
+    //      )
+    //  } else if (type === 'date-picker') {
+    //      return (
+    //          <Picker
+    //              mode="date"
+    //              value={valueA as string}
+    //              onChange={onChange}>
+    //              {innerView}
+    //          </Picker>
+    //      )
+    //  } else if (type === 'city-picker') {
+    //      const { number } = props;
+    //     //  const defaultVal = value ? value : number === 2 ?  null;
+    //      return (
+    //          <CityPicker
+    //              {...props}
+    //             //  id={defaultVal}
+    //              onGetRegion={(e) => onChange(valueA, e)}>
+    //              {innerView}
+    //          </CityPicker>
+    //      )
+    //  } else if (type === 'image-picker') {
+    //      return (
+    //          <View className="card card-photo">
+    //              <View className={statiCls}>{data.name}（最多{props.count}张）</View>
+    //              <ImageUploader 
+    //                  onChange={onChange}
+    //                  defaultUris={valueA as string} />
+    //          </View>
+    //      )
+    //  } else if (type === 'date-month-picker') {
+    //      const [years, months] = getMonthRange();
+    //      const convertVal = function() {
+    //         const [y, m]= (valueA as string)?.split('-');
+    //         return  [ Number(y) - 1940, Number(m) - 1]
+    //      }
+    //      const val =  value ? convertVal() : [50, 0]; 
+    //      // 多选日期
+    //      return (
+    //          <Picker
+    //              mode="multiSelector"
+    //              value={val}
+    //              range={[years, months]} rangeKey="label"
+    //              onChange={onChange}>
+    //         {innerView}
+    //      </Picker>
+    //      )
+    //  } else if (type === 'textarea') {
+    //      return (
+    //          <View className="card">
+    //              <View className={statiCls}>{data.name}</View>
+    //              <View style={{marginTop: '10rpx'}}>
+    //                  <AtTextarea
+    //                  value={value || ''}
+    //                  {...props} 
+    //                      onChange={onChange}></AtTextarea>
+    //              </View>
+    //           </View>
+    //      )
+    //  } else if (type === 'age-picker') {
+    //      const {start, end} = getAgeRange();
+    //      const minAge = valueA ? (valueA as number) - 17 : 0;
+    //      const maxAge = valueB ? (valueB as number) - 18 : 0;
+    //      const defaultVal = [minAge, maxAge];
+    //      return (
+    //          <Picker
+    //              mode="multiSelector"
+    //              rangeKey="label"
+    //              value={defaultVal}
+    //              range={[start, end]}
+    //              onChange={onChange}>
+    //              {innerView}
+    //          </Picker>
+    //      )
+    //  }
      return innerView;
 }, isEqual);
 

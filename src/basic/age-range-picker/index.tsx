@@ -1,22 +1,22 @@
 import { PickerView, PickerViewColumn, View } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import React, { useState } from 'react';
+import PickerPanel from '../picker-panel';
 import { OptionTools } from '../_tools';
-
 interface ChangeEvent {
     minAge: {label: string, value: number},
     maxAge: {label: string, value: number}
 }
 
-interface PickerProps {
-    onChange: (event: ChangeEvent) => void,
+export interface AgeRangePickerProps {
+    onChoose: (event: ChangeEvent, handleType?: string) => void,
     defaultValue?: {
         minAge: number,
         maxAge: number
     }
 }
 
-const AgeRangePicker:React.FC<PickerProps> = function({defaultValue = {}, onChange}) {
+const AgeRangePicker:React.FC<AgeRangePickerProps> = function({defaultValue = {}, onChoose}) {
     const { start, end } = OptionTools.getAgeRange();
     const [pickerValue, setPickerValue] = useState(() => {
         let {minAge, maxAge} = defaultValue || {};
@@ -28,8 +28,7 @@ const AgeRangePicker:React.FC<PickerProps> = function({defaultValue = {}, onChan
         return [Math.max(minIndex, 0), Math.max(maxIndex, 0)]
     });
 
-    const onPickerChange = function(e) {
-        const values = e.detail.value;
+    const handlChoose = (values, handleType: string = 'onChange') => {
         setPickerValue(values);
         if (values.length) {
             const startIndex = values[0];
@@ -38,12 +37,20 @@ const AgeRangePicker:React.FC<PickerProps> = function({defaultValue = {}, onChan
                 minAge: start[startIndex],
                 maxAge: end[endIndex]
             };
-            onChange(events);
+            onChoose(events, handleType);
         }
     }
 
+    const onPickerChange = function(e) {
+        const values = e.detail.value;
+        handlChoose(values);
+    }
+
     return (
-        <View>
+        <PickerPanel 
+            onConfirm={() => {
+                handlChoose(pickerValue, 'onConfirm');
+            }}>
             <PickerView 
                     value={pickerValue}
                     indicatorStyle='height: 50rpx;border-color: #FF3C4B;' 
@@ -52,19 +59,23 @@ const AgeRangePicker:React.FC<PickerProps> = function({defaultValue = {}, onChan
                 <PickerViewColumn style="text-align: center">
                     {start.map(item => {
                         return (
-                            <View>{item.label}</View>
+                            <View style={{
+                                lineHeight: 34 + 'px'
+                            }}>{item.label}</View>
                         );
                     })}
                 </PickerViewColumn>
                 <PickerViewColumn style="text-align: center">
                     {end.map(item => {
                         return (
-                            <View>{item.label}</View>
+                            <View style={{
+                                lineHeight: 34 + 'px'
+                            }}>{item.label}</View>
                         );
                     })}
                 </PickerViewColumn>
             </PickerView>
-        </View>
+        </PickerPanel>
     )
 }
 

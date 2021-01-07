@@ -1,3 +1,4 @@
+const path = require('path');
 const config = {
   projectName: 'app',
   date: '2020-10-14',
@@ -11,6 +12,18 @@ const config = {
   outputRoot: 'dist',
   plugins: [],
   defineConstants: {
+  },
+  alias: {
+    "@/components": path.resolve(__dirname, "..", "src/components"),
+    "@/constants": path.resolve(__dirname, "..", "src/constants"),
+    "@/utils": path.resolve(__dirname, "..", "src/utils"),
+    "@/services": path.resolve(__dirname, "..", "src/services"),
+    "@/hooks": path.resolve(__dirname, "..", "src/hooks"),
+    "@/api": path.resolve(__dirname, "..", "src/api"),
+    "@/assets": path.resolve(__dirname, "..", "src/assets"),
+    "@/pages": path.resolve(__dirname, "..", "src/pages"),
+    "@/libs": path.resolve(__dirname, "..", "src/libs"),
+    "@/basic": path.resolve(__dirname, "..", "src/basic")
   },
   copy: {
     patterns: [

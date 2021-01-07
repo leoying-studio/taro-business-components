@@ -37,7 +37,7 @@ export const TopProvider = function(props) {
     
     const popup = useCallback((Comp: React.FC, options: TopViewOptions = {}):Promise<undefined> => {
         const {closeable = true} = options;
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
             const com =(
                 <View style={topViewStyle}  onClick={() => {
                     if (!cushion.current && closeable) {

@@ -12,7 +12,7 @@ type WidgetType =
  'date-picker' | 
  'city-picker' | 
  'textarea' |
- 'age-picker'|
+ 'age-range-picker'|
  'input' | 
  'date-month-picker';
  

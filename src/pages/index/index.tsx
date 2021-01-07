@@ -1,30 +1,27 @@
-import React, { Component } from 'react'
-import { View, Text } from '@tarojs/components'
-import './index.scss'
-export default class Index extends Component {
+import React, { Component, useRef } from 'react'
+import { View, Text, Button } from '@tarojs/components'
+// import './index.scss';
+import { useAgeRangePicker } from '@/hooks/useAgeRangePicker';
+import { AtButton } from 'taro-ui';
+import { useOverlay } from '@/hooks/useOverlay';
 
-  componentWillMount () { }
+export default function IndexPage() {
+   const overlay = useOverlay();
+   const ageRangePicker = useAgeRangePicker();
+   const ageRangeValueRef = useRef();
 
-  componentDidMount () {
-   
-  }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  render () {
-    return (
-      <View className='index'>
-       {/* <FormConfigurator
-						defaultValues={{}}
-						onValueChange={(values) => {
-							// setData({...data, ...values});
-						}}
-						dataSource={BasicDataSource} /> */}
-      </View>
-    )
-  }
+   return (
+     <View>
+         <View onClick={() => {
+            ageRangePicker.show({
+              defaultValue: ageRangeValueRef.current,
+              onChoose: (value, handleType) => {
+                  
+              }
+            })
+          }}>这是一个按钮</View>
+          {overlay.overlayView}
+     </View>
+    
+   )
 }
