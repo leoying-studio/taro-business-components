@@ -11,9 +11,7 @@ const useRegionPicker = () => {
     const show = function(props) {
         overlay.show(() => {
             return (
-                <View className="panel">
-                    <RegionView {...props}></RegionView>
-                </View>
+                <RegionView {...props}></RegionView>
             )
         }, {
             type: 'slid-up'

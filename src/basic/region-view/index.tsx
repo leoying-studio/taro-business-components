@@ -66,7 +66,8 @@ const RegionView: React.FC<RegionProps> = ({
       }}>
       <PickerView
         style={{
-          height: 250 + 'rpx'
+          height: 250 + 'rpx',
+          backgroundColor: '#ffffff'
         }}
         indicatorStyle='height: 34px;'
         onChange={onPickerViewChange}
