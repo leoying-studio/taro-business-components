@@ -133,7 +133,7 @@ class Login extends React.Component<any, State> {
         : "获取验证码";
     return (
       <View className="login-panel">
-        <View className="submit-wrapper">
+        <View className="login-panel-body">
           <View className="input-box">
             <Input
               placeholder="请输入手机号"
@@ -148,7 +148,7 @@ class Login extends React.Component<any, State> {
               }}
             ></Input>
           </View>
-          <View className="input-box verification-code">
+          <View className="input-box verification__code">
             <Input
               placeholder="请输入验证码"
               placeholderClass="placeholder-input"
