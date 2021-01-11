@@ -1,7 +1,8 @@
 import React, { Component, CSSProperties, useState } from 'react';
 import { PickerView, PickerViewColumn, View } from "@tarojs/components";
 import Taro from '@tarojs/taro';
-import "./index.scss";
+import PickerPanel from '../picker-panel';
+// import "./index.scss";
 
 interface DatePickerProps {
     onChange: (value: {
@@ -99,8 +100,17 @@ export default class DatePicker extends Component<DatePickerProps, DatePickerSta
   
     render() {
       return (
-        <View style={{backgroundColor: 'white'}}>
+        <PickerPanel 
+            onConfirm={() => {
+
+        }} 
+            onCancel={() => {
+
+        }}>
           <PickerView  
+            style={{
+                backgroundColor: '#ffffff'
+            }}
             indicatorStyle='height: 34px;'
             value={this.state.value} onChange={this.onChange}>
             <PickerViewColumn style="text-align: center; height: 250rpx;">
@@ -118,7 +128,7 @@ export default class DatePicker extends Component<DatePickerProps, DatePickerSta
               })}
             </PickerViewColumn>
           </PickerView>
-        </View>
+        </PickerPanel>
       )
     }
   }

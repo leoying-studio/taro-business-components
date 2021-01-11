@@ -6,6 +6,7 @@ import { useOverlay } from '@/hooks/useOverlay';
 import { useRegionPicker } from '@/hooks/useRegionPicker';
 import './index.scss';
 import { useDatePicker } from '@/hooks/useDatePicker';
+import Login from './../../business/login';
 
 export default function IndexPage() {
    const overlay = useOverlay();
@@ -42,6 +43,19 @@ export default function IndexPage() {
     })
    }
 
+   const onPopupDate = function() {
+    datePicker.show({
+      column: 3,
+      onChoose(value, handleType) {
+        
+      }
+    })
+   }
+
+   const onPopupLogin = function() {
+      overlay.show(() => <Login></Login>, {type: 'slid-up'});
+   }
+
    return (
      <View>
         <View className="panel">
@@ -51,7 +65,7 @@ export default function IndexPage() {
             <AtList>
               <AtListItem title='年龄区间' onClick={onPopupAge} arrow="right"/>
               <AtListItem title='地区选择' arrow='right' onClick={onPopupRegion}/>
-              <AtListItem title='日期选择' extraText='' />
+              <AtListItem title='日期选择' extraText='' onClick={onPopupDate}/>
             </AtList>
         </View>
         <View className="panel">
@@ -59,7 +73,7 @@ export default function IndexPage() {
                 登录验证
             </View>
             <AtList>
-              <AtListItem title='验证码登录' onClick={onPopupAge} arrow="right"/>
+              <AtListItem title='验证码登录' onClick={onPopupLogin} arrow="right"/>
             </AtList>
         </View>
         <View className="panel">

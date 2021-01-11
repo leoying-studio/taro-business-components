@@ -11,9 +11,8 @@ const useDatePicker = () => {
     const show = function(props) {
         overlay.show(() => {
             return (
-                <View className="panel">
+               
                     <DateView {...props}></DateView>
-                </View>
             )
         }, {
             type: 'slid-up'

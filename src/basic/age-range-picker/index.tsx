@@ -54,7 +54,7 @@ const AgeRangePicker:React.FC<AgeRangePickerProps> = function({defaultValue = {}
             <PickerView 
                     value={pickerValue}
                     indicatorStyle='height: 50rpx;border-color: #FF3C4B;' 
-                    style='width: 100%; height: 250px; background-color: #ffffff;' 
+                    style='width: 100%; height: 250rpx; background-color: #ffffff;' 
                     onChange={onPickerChange}>
                 <PickerViewColumn style="text-align: center">
                     {start.map(item => {
