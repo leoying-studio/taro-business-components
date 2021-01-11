@@ -11,7 +11,7 @@ const useAgeRangePicker = () => {
     const show = function(props: AgeRangePickerProps) {
         overlay.show(() => {
             return (
-                <View className="panel">
+                <View>
                     <AgeRangePicker {...props}></AgeRangePicker>
                 </View>
             )

@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-01-06 09:37:19
+ * @LastEditTime: 2021-01-11 09:33:05
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /taro-business-components/src/utils/index.ts
+ */
 export default class Type {
 
     static isObject(value: any) {
@@ -20,4 +28,5 @@ export default class Type {
         return true;
     }
        
+    
 }

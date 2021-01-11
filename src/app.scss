@@ -1,14 +1,16 @@
 // 全局css样式
 @import "./var.scss";
-@import "~taro-ui/dist/style/components/button.scss";
-@import "~taro-ui/dist/style/components/image-picker.scss";
-@import "~taro-ui/dist/style/components/progress.scss";
-@import "~taro-ui/dist/style/components/icon.scss";
-@import "~taro-ui/dist/style/components/loading.scss";
-@import "~taro-ui/dist/style/components/toast.scss";
-@import "~taro-ui/dist/style/components/message.scss";
-@import "./assets//fonts/iconfont.css";
+@import "~taro-ui/dist/style/components/index.scss";
+// @import "~taro-ui/dist/style/components/button.scss";
+// @import "~taro-ui/dist/style/components/image-picker.scss";
+// @import "~taro-ui/dist/style/components/progress.scss";
+// @import "~taro-ui/dist/style/components/icon.scss";
+// @import "~taro-ui/dist/style/components/loading.scss";
+// @import "~taro-ui/dist/style/components/toast.scss";
+// @import "~taro-ui/dist/style/components/message.scss";
+// @import "./assets//fonts/iconfont.css";
 @import "./assets/styles/utils.scss";
+
 
 .card {
   // width: 690px;
@@ -35,4 +37,31 @@
 
 .btn-success {
   background-color: #3bb372;
+}
+
+
+.panel {
+  margin: 34px 0 50px;
+  & .panel-title {
+    position: relative;
+    margin-bottom: 20px;
+    padding-left: 40px;
+    color: #6a6a77;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.5;
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      margin-top: -20px;
+      width: 6px;
+      height: 40px;
+      background-color: #6190e8;
+      box-shadow: 0 7px 12px 0 rgba(97,144,232,.2);
+      border-radius: 1px;
+    }
+  }
 }
