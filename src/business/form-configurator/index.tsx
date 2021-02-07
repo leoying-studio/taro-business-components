@@ -5,15 +5,12 @@ import Taro, { Current, render, useRouter } from '@tarojs/taro';
 import CityPicker from '../city-picker';
 import './index.scss';
 import { ConfigurationItem, FormConfigurationProps, Rule } from './interface';
-import ImageUploader from '../basic/image-uploader';
-import { sharedLocation } from '@/services/login';
-import { getAgeRange, getMonthRange } from './shared-utils';
-import ItemRight from './ItemRight';
 import FormItem from './FormItem';
 
 const FormConfigurator:React.FC<FormConfigurationProps> = function({dataSource, 
     defaultValues, 
     onValueChange, 
+    template,
     style, 
     disabled}, ref) {
 
@@ -129,20 +126,37 @@ const FormConfigurator:React.FC<FormConfigurationProps> = function({dataSource,
         })
     }, [])
 
+    // 模型, 外面模型
+    const wrapper = function() {
+        if(typeof template === 'function') {
+            return template;
+        }
+        return (props) => {
+            return (
+                <View className="form-item__template">
+                    {props.children}
+                </View>
+            )
+        }
+    }
+
     /**
      * 
      * @param item 
      * @param index 
      */
     const renderListItem = (item: ConfigurationItem, index: number) => {
+        const Wrapper = wrapper() as React.FC;
         return (
-           <FormItem 
-            key={item.field}
-            data={item} 
-            disabled={disabled}
-            values={values}
-            onChange={onChange}
-            defaultValues={defaultValues}></FormItem>
+            <Wrapper>
+                   <FormItem 
+                        key={item.field}
+                        data={item} 
+                        disabled={disabled}
+                        values={values}
+                        onChange={onChange}
+                        defaultValues={defaultValues}></FormItem>
+            </Wrapper>
         )
     }
 

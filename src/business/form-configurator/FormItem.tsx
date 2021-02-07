@@ -23,7 +23,6 @@ const FormItem = React.memo(({data, value = [], onChoose}: FormItemProps) => {
      const {type, props = {}, options = []} = data.widget || {};
      const [widgetValue, setWidgetValue] = useState(value);
      const [valueA, valueB] = widgetValue;
-     const overlay = useOverlay();
 
      useEffect(() => {
         setWidgetValue(value);

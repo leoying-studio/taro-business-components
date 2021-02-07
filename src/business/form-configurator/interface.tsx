@@ -53,8 +53,14 @@ export interface ConfigurationItem {
 		 * 控件的options选项
 		 */
 		options?: FormItemOptions[]
-	
-		props?: InputProps | SwitchProps | TextProps | PickerDateProps | any
+		/**
+		 * 正则匹配验证规则，多用于文本框
+		 */
+		rules?: Rule[]
+		/**
+		 * 控件的默认属性
+		 */
+		props?: InputProps | SwitchProps | TextProps | PickerDateProps
 	}
 	/**
 	 * 没有值的时候的提示信息
@@ -64,14 +70,11 @@ export interface ConfigurationItem {
 	 * 单位 比如 cm,mm
 	 */
 	unit?: string
-	/**
-	 * 正则匹配验证规则，多用于文本框
-	 */
-	rules?: Rule[]
 }
 
 
 export interface FormConfigurationProps {
+
 	jointsComponents: [],
 	/**
 	 * 禁用
@@ -92,7 +95,7 @@ export interface FormConfigurationProps {
 	/**
 	 * 当前点击项
 	 */
-	onPress?: (dataSource: ConfigurationItem, index: number) => void
+	onPressItem?: (dataSource: ConfigurationItem, index: number) => void
 	/**
 	 * itemStyle
 	 */
@@ -101,4 +104,9 @@ export interface FormConfigurationProps {
 	 * wrapperStyle
 	 */
 	style?: CSSProperties
+	/**
+	 * 模板样式
+	 */
+	template: React.FunctionComponent
+
 }
