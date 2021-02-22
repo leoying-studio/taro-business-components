@@ -2,7 +2,7 @@ import { PickerView, PickerViewColumn, View } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import React, { useState } from 'react';
 import PickerPanel from '../picker-panel';
-import { OptionTools } from '../_tools';
+import utils from './../_utils/age';
 interface ChangeEvent {
     minAge: {label: string, value: number},
     maxAge: {label: string, value: number}
@@ -17,7 +17,7 @@ export interface AgeRangePickerProps {
 }
 
 const AgeRangePicker:React.FC<AgeRangePickerProps> = function({defaultValue = {}, onChoose}) {
-    const { start, end } = OptionTools.getAgeRange();
+    const { start, end } = utils.getRange();
     const [pickerValue, setPickerValue] = useState(() => {
         let {minAge, maxAge} = defaultValue || {};
         if (!minAge && !maxAge) {

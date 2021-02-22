@@ -1,134 +1,174 @@
-import React, { Component, CSSProperties, useState } from 'react';
+import React, { Component, CSSProperties, useState } from "react";
 import { PickerView, PickerViewColumn, View } from "@tarojs/components";
-import Taro from '@tarojs/taro';
-import PickerPanel from '../picker-panel';
-// import "./index.scss";
+import Taro from "@tarojs/taro";
+import PickerPanel from "./../picker-panel";
+import { PickerPropsStyle } from "./../_interface/picker";
+import utils from "./../_utils/date";
 
-interface DatePickerProps {
-    onChange: (value: {
-        year: number,
-        month: number,
-        day: number
-    }) => void
-    defaultValue?: string
+export interface DatePickerProps extends PickerPropsStyle {
+  onChoose: (value: PostDate, handleType?: "onChange" | "onConfirm") => void;
+  date?: Date;
+  minDate?: Date;
+  maxDate?: Date;
+  mode?: "date" | "year-month" | "year"
 }
 
 interface DatePickerState {
-   years: number[] ,
-   year: number,
-   months: (number | string)[],
-   days: (number | string)[]
-   day: number | string
-   value: number[]
-   month?: number
+  value: number[];
 }
 
-export const getDatePickerSource = function() {
-      const years: number[] = []
-      const months: (number | string)[]  = []
-      const days:  (number | string)[] = []
-      const len = new Date().getFullYear() - 17;
-      for (let i = 1940; i <= len; i++) {
-        years.push(i)
-      }
-      for (let i = 1; i <= 12; i++) {
-        const value = i < 10 ? '0' + i : i;
-        months.push(value);
-      }
-      for (let i = 1; i <= 31; i++) {
-        const value = i < 10 ? '0' + i : i;
-        days.push(value)
-      }
-
-      return {
-        years,
-        months,
-        days
-      }
+interface PostDate {
+  year?: number | string;
+  day?: number | string;
+  month?: number | string;
 }
 
-export const getDatePickerValue = function(value) {
-    if (value) {
-        const [y, m] = (value as string)?.split('-') || [];
-        return [Number(y) - 1940, Number(m) - 1];
-    }
-    return [50, 0];
-}
+export default class DatePicker extends Component<
+  DatePickerProps,
+  DatePickerState
+> {
 
-export default class DatePicker extends Component<DatePickerProps, DatePickerState> {
-
-    constructor (props) {
-      super(props)
-      const { years, months, days } = getDatePickerSource();
-      const date = new Date()
-      this.state = {
-        years: years,
-        year: date.getFullYear(),
-        months: months,
-        month: 2,
-        days: days,
-        day: 2,
-        value: getDatePickerValue(this.props.defaultValue)
-      }
-    }
-  
-    onChange = e => {
-      const val = e.detail.value
-      const nextState = {
-        year: this.state.years[val[0]],
-        month: this.state.months[val[1]] as number,
-        day: this.state.days[val[2]] as number,
-        value: val
-      };
-      this.setState(nextState, () => {
-          this.props.onChange && this.props.onChange({...nextState});
-      })
-    }
-
-    private getStyle = (index, col):CSSProperties => {
-        const active = index === this.state.value[col];
-        return {
-            overflow: 'hidden',
-            whiteSpace:'nowrap',
-            textOverflow:'ellipsis',
-            height: 34 + 'px',
-            lineHeight: 34 + 'px',
-            fontWeight: active ? 600 : 400,
-            color: active ? "#FF3C4B" : '#000000'
-        }
-      }
-  
-    render() {
-      return (
-        <PickerPanel 
-            onConfirm={() => {
-
-        }} 
-            onCancel={() => {
-
-        }}>
-          <PickerView  
-            style={{
-                backgroundColor: '#ffffff'
-            }}
-            indicatorStyle='height: 34px;'
-            value={this.state.value} onChange={this.onChange}>
-            <PickerViewColumn style="text-align: center; height: 250rpx;">
-              {this.state.years.map((item, index) => {
-                return (
-                  <View style={this.getStyle(index, 0)}>{item}年</View>
-                );
-              })}
-            </PickerViewColumn>
-            <PickerViewColumn style="text-align: center; height: 250rpx;">
-              {this.state.months.map((item, index) => {
-                return (
-                  <View style={this.getStyle(index, 1)}>{item}月</View>
-                )
-              })}
-            </PickerViewColumn>
-          </PickerView>
-        </PickerPanel>
-      )
-    }
+  static defaultPorps = {
+     date: new Date(),
+     mode: 'date'
   }
+  /**
+   * 存数据源
+   */
+  private dataSource: [][] = [];
+
+  private postdate: PostDate = {};
+
+  constructor(props) {
+    super(props);
+    const value = props.date
+      ? this.getValues(props.date)
+      : utils.getToDayIndexs();
+
+    this.state = {
+      value,
+    };
+  }
+
+  private handleChange(value, handleType: 'onChange' | 'onConfirm' = "onChange") {
+    const {onChoose} = this.props;
+    this.setPostDate(value);
+    value = this.getValues(new Date(Object.values(this.postdate).join('-')));
+    this.setPostDate(value);
+    const nextState = { value };
+    this.setState(nextState, () => {
+      onChoose && onChoose({ ...nextState, ...this.postdate }, handleType);
+    });
+  }
+
+  private setPostDate(value) {
+    const [years, months = [], days = []] = this.dataSource;
+    const [yIndex, mIndex, dIndex] = value;
+    const justIndex = utils.adjustDayIndex( years[yIndex], months[mIndex || 0]);
+    const dayIndex = dIndex > justIndex ? justIndex :dIndex;
+    this.postdate = {
+      year: years[yIndex],
+      month: months[mIndex] || '01',
+      day: days[dayIndex] || '01',
+    };
+  }
+
+  private getValues(date: Date) {
+    const { minDate, maxDate } = this.props;
+
+    const result = utils.compare(date, minDate, maxDate);
+    if (result === "lt") {
+      return utils.findIndexs(minDate as Date);
+    }
+
+    if (result === "gt") {
+      return utils.findIndexs(maxDate as Date);
+    }
+
+    return utils.findIndexs(date);
+  }
+
+  private getDataSource() {
+    const { year = 1940, month = 1, day = 1 } = this.postdate;
+    const { mode = "date" } = this.props;
+    const { years, months, days } = utils.createSource(
+      year as number,
+      month as number
+    );
+    if (mode === "date") {
+      return [years, months, days];
+    }
+    if (mode === "year-month") {
+      return [years, months];
+    }
+    return [years];
+  }
+
+  onChange = (e) => {
+    const val = e.detail.value;
+    this.handleChange(val);
+  };
+
+  private getStyle = (index, col): CSSProperties => {
+    const { activeTextStyle, textStyle = {} } = this.props;
+    const active = index === this.state.value[col];
+    if (active && activeTextStyle) {
+      return activeTextStyle;
+    }
+    return {
+      overflow: "hidden",
+      whiteSpace: "nowrap",
+      textOverflow: "ellipsis",
+      height: 34 + "px",
+      lineHeight: 34 + "px",
+      fontWeight: active ? 600 : 400,
+      color: active ? "#FF3C4B" : "#000000",
+      ...textStyle,
+    };
+  };
+
+  render() {
+    const { columnStyle = {}, style = {} } = this.props;
+    this.dataSource = this.getDataSource() as [][];
+
+    return (
+      <PickerPanel
+        onConfirm={() => {
+          this.handleChange(this.state.value, "onConfirm");
+        }}
+      >
+        <PickerView
+          indicatorStyle="height: 34px;"
+          style={{
+            backgroundColor: "#ffffff",
+            ...style,
+          }}
+          value={this.state.value}
+          onChange={this.onChange}
+        >
+          {this.dataSource.map((list, col) => {
+            const unitText = col === 0 ? "年" : col === 1 ? "月" : "日";
+            return (
+              <PickerViewColumn
+                style={{
+                  textAlign: "center",
+                  height: "250rpx",
+                  ...columnStyle,
+                }}
+              >
+                {list.map((item, index) => {
+                  return (
+                    <View style={this.getStyle(index, col)}>
+                      {item < 10 ? '0' + item : item}
+                      {unitText}
+                    </View>
+                  );
+                })}
+              </PickerViewColumn>
+            );
+          })}
+        </PickerView>
+      </PickerPanel>
+    );
+  }
+}
