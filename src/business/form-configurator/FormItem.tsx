@@ -1,210 +1,226 @@
 import React, { Component, useEffect, useMemo, useRef, useState } from "react";
-import { View, Text, Picker, Input, CommonEventFunction, BaseEventOrig, CommonEvent } from "@tarojs/components";
+import { View, Text, Picker, Input } from "@tarojs/components";
 import Taro, { render, useRouter } from "@tarojs/taro";
-import { ConfigurationItem } from "./interface";
+import { ConfigurationItem, ImageUploaderProps } from "./interface";
 import { AtIcon, AtSwitch, AtTextarea } from "taro-ui";
+import { getRange, getMonthRange, shallowEqual } from "./shared-utils";
 import { InputProps } from "@tarojs/components/types/Input";
-import { getAgeRange, getMonthRange, shallowEqual } from "./shared-utils";
-import ImageUploader from "../basic/image-uploader";
-import CityPicker from '../basic/region-View';
-import { PickerDateProps, PickerMultiSelectorProps, PickerSelectorProps } from "@tarojs/components/types/Picker";
-import { useOverlay } from "src/hooks/useOverlay";
-
+import { throttle } from "@/utils/performance";
+import { useDatePicker } from "@/hooks/useDatePicker";
+import { useRegionPicker } from "@/hooks/useRegionPicker";
+import { useAgeRangePicker } from "@/hooks/useAgeRangePicker";
+import { bunchy } from "@/utils/date";
+import ImageUploader from "@/basic/image-uploader";
+import { AtTextareaProps } from "taro-ui/types/textarea";
 interface FormItemProps {
-    onChoose: (e?: any, item?: ConfigurationItem, handler?: string) => void,
-    data: ConfigurationItem,
-    value: (string | number)[]
+  onChoose: (e?: any, handler?: string, item?: ConfigurationItem) => void;
+  data: ConfigurationItem;
+  value: any;
 }
-/**
- * 使用React.memo的主要作用是缓存，减少渲染, 注意useCallbcak的使用
- */
-const FormItem = React.memo(({data, value = [], onChoose}: FormItemProps) => {
-     // 设置控件懒加载
-     const {type, props = {}, options = []} = data.widget || {};
-     const [widgetValue, setWidgetValue] = useState(value);
-     const [valueA, valueB] = widgetValue;
 
-     useEffect(() => {
-        setWidgetValue(value);
-     }, [value])
+const FormItem = React.memo(({ data, value, onChoose }: FormItemProps) => {
+  // 设置控件懒加载
+  const { type, props = {}, options = [] } = data.widget || {};
+  const [val, setVal] = useState(value);
+  const datePicker = useDatePicker();
+  const regionPicker = useRegionPicker();
+  const ageRangePicker = useAgeRangePicker();
+  const fields = data.fields;
 
+  if (type === 'date-picker') {
+      console.log(val, 'vvvv')
+  }
 
-     const onClickItem = function() {
-        // 弹出选择器
-        
-     }
-
-     const renderRight = () => {
-        if (type === 'input') {
-            return <Input
-                {...props}
-                className="input"
-                value={value || ''}
-                onInput={(e) => onChoose(e, data, 'input')}></Input>
-        }
-        if (type === 'switch') {
-            return <AtSwitch checked={!!value} color="#FF345F" onChange={(value) => onChoose(value, data, 'switch')} />
-        }
-    
-        const getClass = function() {
-            const className = typeof value !== 'undefined' ? 'placeholder selector' : 'placeholder';
-            return className;
-        }
-        const option = options.find((option) => {option.value === Number(value)});
-        const hideArrows = data.readonly;
-        let content = option ? option.label : value ? value : data.hint;
-        
-        if (type === 'city-picker') {
-            if (valueB) {
-                content = (valueB as string).split(',').join('-');
-            }
-            if (!valueA) {
-                content = '不限'
-            }
-        }
-    
-        if (type === 'age-range-picker') {
-            if (value) {
-                const { start, end } = getAgeRange();
-                const minOpt = start.find(item => item.value === valueA);
-                const maxOpt = end.find(item => item.value === valueB);
-                content = minOpt?.label + '-' + maxOpt?.label;
-                if (minOpt?.value === start[1].value && maxOpt?.value === end[end.length -1].value) {
-                    content = '不限'
-                }
-            }
-        }
-        return (
-            <View 
-                style={{display: 'flex', alignItems: 'center'}} className="card-right">
-                 <Text className={getClass()}>{content}</Text>
-                 {hideArrows ? null : <AtIcon value='chevron-right' size='18' color='#999999'></AtIcon>}
-            </View>
-        )
-     }
-  
-     const pickerValue = options.findIndex((item) => item.value === Number(value));
-     const spaceCls = data.required ? 'label required' : 'label';
-     const statiCls =  data.required ? 'headline required' : 'headline';
-     const innerView = (
-         <View className="card card-item" onClick={onClickItem}>
-             <View>
-                 <Text className={spaceCls}>{data.name}</Text>
-             </View>
-            {renderRight()}
-         </View>
-     )
-
-    //  if (type === 'picker') {
-    //      let defaultValue = pickerValue < 0 ? 0 : pickerValue;
-    //      if (props.value && !defaultValue) {
-    //          defaultValue = (options).findIndex((option) => {
-    //              return option.value === props.value;
-    //          })
-    //      }
-    //      return (
-    //          <Picker
-    //              mode="selector"
-    //              value={defaultValue}
-    //              range={options} 
-    //              rangeKey="label"
-    //              onChange={onChange}>
-    //              {innerView}
-    //          </Picker>
-    //      )
-    //  } else if (type === 'date-picker') {
-    //      return (
-    //          <Picker
-    //              mode="date"
-    //              value={valueA as string}
-    //              onChange={onChange}>
-    //              {innerView}
-    //          </Picker>
-    //      )
-    //  } else if (type === 'city-picker') {
-    //      const { number } = props;
-    //     //  const defaultVal = value ? value : number === 2 ?  null;
-    //      return (
-    //          <CityPicker
-    //              {...props}
-    //             //  id={defaultVal}
-    //              onGetRegion={(e) => onChange(valueA, e)}>
-    //              {innerView}
-    //          </CityPicker>
-    //      )
-    //  } else if (type === 'image-picker') {
-    //      return (
-    //          <View className="card card-photo">
-    //              <View className={statiCls}>{data.name}（最多{props.count}张）</View>
-    //              <ImageUploader 
-    //                  onChange={onChange}
-    //                  defaultUris={valueA as string} />
-    //          </View>
-    //      )
-    //  } else if (type === 'date-month-picker') {
-    //      const [years, months] = getMonthRange();
-    //      const convertVal = function() {
-    //         const [y, m]= (valueA as string)?.split('-');
-    //         return  [ Number(y) - 1940, Number(m) - 1]
-    //      }
-    //      const val =  value ? convertVal() : [50, 0]; 
-    //      // 多选日期
-    //      return (
-    //          <Picker
-    //              mode="multiSelector"
-    //              value={val}
-    //              range={[years, months]} rangeKey="label"
-    //              onChange={onChange}>
-    //         {innerView}
-    //      </Picker>
-    //      )
-    //  } else if (type === 'textarea') {
-    //      return (
-    //          <View className="card">
-    //              <View className={statiCls}>{data.name}</View>
-    //              <View style={{marginTop: '10rpx'}}>
-    //                  <AtTextarea
-    //                  value={value || ''}
-    //                  {...props} 
-    //                      onChange={onChange}></AtTextarea>
-    //              </View>
-    //           </View>
-    //      )
-    //  } else if (type === 'age-picker') {
-    //      const {start, end} = getAgeRange();
-    //      const minAge = valueA ? (valueA as number) - 17 : 0;
-    //      const maxAge = valueB ? (valueB as number) - 18 : 0;
-    //      const defaultVal = [minAge, maxAge];
-    //      return (
-    //          <Picker
-    //              mode="multiSelector"
-    //              rangeKey="label"
-    //              value={defaultVal}
-    //              range={[start, end]}
-    //              onChange={onChange}>
-    //              {innerView}
-    //          </Picker>
-    //      )
-    //  }
-     return innerView;
-}, isEqual);
-
-function isEqual(prevProps,nextProps) {
-    const { maxAge, minAge} = prevProps.values || {};
-    const nextValues = nextProps.values || {};
-    const type = nextProps.data?.widget?.type;
-    if (type === 'age-range-picker') {
-        return nextValues.maxAge === maxAge && nextValues.minAge === minAge;
+  const onClickItem = function () {
+    if (type === "date-picker" || type === "date-month-picker") {
+      const mode = type === "date-month-picker" ? "year-month" : "date";
+      datePicker.show({
+        date: val,
+        mode,
+        onChoose: function (value, handleType) {
+            debugger
+          const date = bunchy(value);
+          setVal(date);
+          onChoose && onChoose(date, handleType, data);
+        },
+      });
+    } else if (type === "age-range-picker") {
+      ageRangePicker.show({
+        onChoose(value, handleType) {
+          setVal(value);
+          onChoose && onChoose(value, handleType, data);
+        },
+      });
+    } else if (type === "region-picker") {
+      regionPicker.show({
+        onChoose(value, handleType) {
+          // setVal({
+          //     ...val
+          // })
+          onChoose && onChoose(value, handleType, data);
+        },
+      });
+    } else if (type === "picker") {
     }
-    const { field, mapField } = prevProps.data || {};
-    const preVal = prevProps.values[field];
-    const nextVal = nextProps.values[field];
-    const preName = prevProps.values[mapField];
-    const nextName = nextProps.values[mapField];
-    if (preVal !== nextVal || preName !== nextName) {
-        return false;
+  };
+
+  const onInput = function (e: InputProps.inputEventDetail) {
+    setVal(e.value);
+    onChoose && onChoose(e, "input", data);
+  };
+
+  const getClasses = function () {
+    const className =
+      typeof val !== "undefined" ? "placeholder selector" : "placeholder";
+    return className;
+  };
+
+  const renderRight = () => {
+    if (type === "input") {
+      return (
+        <Input
+          {...(props as InputProps)}
+          className="input"
+          value={val}
+          onInput={throttle(onInput, 300)}
+        ></Input>
+      );
     }
-   return false;
+
+    if (type === "switch") {
+      return (
+        <AtSwitch
+          checked={!!value}
+          color="#FF345F"
+          onChange={(value) => onChoose(value, "switch", data)}
+        />
+      );
+    }
+
+    const option = options.find((option) => {
+      option.value === Number(value);
+    });
+    // debugger
+    const hideArrows = data.readonly;
+    let displayText = option ? option.label : val ? val : data.hint;
+
+    if (type === "region-picker") {
+      const regionName = (fields as string[]).find(
+        (field) => typeof val[field] === "string"
+      );
+      const regionCode = (fields as string[]).find(
+        (field) => typeof val[field] === "string"
+      );
+      if (regionName) {
+        displayText = (regionName as string).split(",").join("-");
+      }
+      if (!regionCode) {
+        displayText = "不限";
+      }
+    }
+
+    if (type === "age-range-picker" && val) {
+      const { start, end } = getRange();
+      const [minKey, maxKey] = fields || [];
+      const minOpt = start.find((item) => item.value === val[minKey]);
+      const maxOpt = end.find((item) => item.value === val[maxKey]);
+      displayText = minOpt?.label + "-" + maxOpt?.label;
+      if (
+        minOpt?.value === start[1].value &&
+        maxOpt?.value === end[end.length - 1].value
+      ) {
+        displayText = "不限";
+      }
+    }
+    return (
+      <View
+        style={{ display: "flex", alignItems: "center" }}
+        className="card-right"
+      >
+        <Text className={getClasses()}>{displayText}</Text>
+        {hideArrows ? null : (
+          <AtIcon value="chevron-right" size="18" color="#999999"></AtIcon>
+        )}
+      </View>
+    );
+  };
+
+  const spaceCls = data.required ? "label required" : "label";
+  const statiCls = data.required ? "headline required" : "headline";
+
+  if (type === "textarea") {
+    return (
+      <View className="card">
+        <View className={statiCls}>{data.name}</View>
+        <View style={{ marginTop: "10rpx" }}>
+          <AtTextarea
+            {...(props as AtTextareaProps)}
+            value={val}
+            onChange={throttle(onInput, 300)}
+          ></AtTextarea>
+        </View>
+      </View>
+    );
+  }
+
+  if (type === "image-picker") {
+    return (
+      <View className="card card-photo">
+        <View className={statiCls}>
+          {data.name}（最多{(props as ImageUploaderProps).count}张）
+        </View>
+        <ImageUploader onChange={() => {}} defaultUris={val as string} />
+      </View>
+    );
+  }
+
+  return (
+    <View className="card card-item" onClick={onClickItem}>
+      <View>
+        <Text className={spaceCls}>{data.name}</Text>
+      </View>
+      {renderRight()}
+    </View>
+  );
+
+  //  if (type === 'picker') {
+  //      let defaultValue = pickerValue < 0 ? 0 : pickerValue;
+  //      if (props.value && !defaultValue) {
+  //          defaultValue = (options).findIndex((option) => {
+  //              return option.value === props.value;
+  //          })
+  //      }
+  //      return (
+  //          <Picker
+  //              mode="selector"
+  //              value={defaultValue}
+  //              range={options}
+  //              rangeKey="label"
+  //              onChange={onChange}>
+  //              {innerView}
+  //          </Picker>
+  //      )
+  //  }
+});
+
+function isEqual(prevProps, nextProps) {
+    // return !shallowEqual(prevProps || {}, nextProps || {})
+  //     const { maxAge, minAge} = prevProps.values || {};
+  //     const nextValues = nextProps.values || {};
+  //     const type = nextProps.data?.widget?.type;
+  //     if (type === 'age-range-picker') {
+  //         return nextValues.maxAge === maxAge && nextValues.minAge === minAge;
+  //     }
+  //     const { field, mapField } = prevProps.data || {};
+  //     const preVal = prevProps.values[field];
+  //     const nextVal = nextProps.values[field];
+  //     const preName = prevProps.values[mapField];
+  //     const nextName = nextProps.values[mapField];
+  //     if (preVal !== nextVal || preName !== nextName) {
+  //         return false;
+  //     }
+  //    return false;
+  return false;
 }
 
 export default FormItem;

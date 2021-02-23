@@ -1,8 +1,10 @@
+import { ImageProps } from "@tarojs/components/types/Image";
 import { InputProps } from "@tarojs/components/types/Input";
 import { PickerDateProps } from "@tarojs/components/types/Picker";
 import { SwitchProps } from "@tarojs/components/types/Switch";
 import { TextProps } from "@tarojs/components/types/Text";
 import { CSSProperties } from "react";
+import { AtTextareaProps } from "taro-ui/types/textarea";
 
 type WidgetType = 
  'switch' |
@@ -10,7 +12,7 @@ type WidgetType =
  'image-picker' | 
  'text' |
  'date-picker' | 
- 'city-picker' | 
+ 'region-picker' | 
  'textarea' |
  'age-range-picker'|
  'input' | 
@@ -27,6 +29,11 @@ export interface Rule {
     metch: RegExp,
 }
 
+
+export interface ImageUploaderProps extends ImageProps {
+	count?: number
+}
+
 export interface ConfigurationItem {
 	/**
 	 * item左侧的名称
@@ -39,7 +46,7 @@ export interface ConfigurationItem {
 	/**
 	 * 服务端对应的字段名称, 如果有范围值比如minAge, maxAge 等可以按照顺序填写多个
 	 */
-	fields: string[]
+	fields: string | string[]
 	/**
 	 * 是否只读, 不可操作和修改
 	 */
@@ -60,22 +67,17 @@ export interface ConfigurationItem {
 		/**
 		 * 控件的默认属性
 		 */
-		props?: InputProps | SwitchProps | TextProps | PickerDateProps
+		props?: InputProps | SwitchProps | TextProps | PickerDateProps | ImageUploaderProps | AtTextareaProps
 	}
 	/**
 	 * 没有值的时候的提示信息
 	 */
-	hint?: string,
-	/**
-	 * 单位 比如 cm,mm
-	 */
-	unit?: string
+	hint?: string
 }
 
 
 export interface FormConfigurationProps {
-
-	jointsComponents: [],
+	jointsComponents?: [],
 	/**
 	 * 禁用
 	 */
@@ -93,10 +95,6 @@ export interface FormConfigurationProps {
 	 */
 	onValueChange?: (values: any) => void
 	/**
-	 * 当前点击项
-	 */
-	onPressItem?: (dataSource: ConfigurationItem, index: number) => void
-	/**
 	 * itemStyle
 	 */
 	itemStyle?: CSSProperties
@@ -107,6 +105,6 @@ export interface FormConfigurationProps {
 	/**
 	 * 模板样式
 	 */
-	template: React.FunctionComponent
+	template?: React.FunctionComponent
 
 }

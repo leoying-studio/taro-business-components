@@ -4,12 +4,13 @@ import Taro from "@tarojs/taro";
 import PickerPanel from "./../picker-panel";
 import { PickerPropsStyle } from "./../_interface/picker";
 import utils from "./../_utils/date";
+import { formatDate } from "@/utils/date";
 
 export interface DatePickerProps extends PickerPropsStyle {
   onChoose: (value: PostDate, handleType?: "onChange" | "onConfirm") => void;
-  date?: Date;
-  minDate?: Date;
-  maxDate?: Date;
+  date?: string;
+  minDate?: string;
+  maxDate?: string;
   mode?: "date" | "year-month" | "year"
 }
 
@@ -29,18 +30,19 @@ export default class DatePicker extends Component<
 > {
 
   static defaultPorps = {
-     date: new Date(),
+     date: formatDate(new Date(), 'yyyy-MM-dd'),
      mode: 'date'
   }
   /**
    * 存数据源
    */
-  private dataSource: [][] = [];
+  private sources: [][] = [];
 
   private postdate: PostDate = {};
 
   constructor(props) {
     super(props);
+    console.log(props, 'props.date')
     const value = props.date
       ? this.getValues(props.date)
       : utils.getToDayIndexs();
@@ -53,7 +55,7 @@ export default class DatePicker extends Component<
   private handleChange(value, handleType: 'onChange' | 'onConfirm' = "onChange") {
     const {onChoose} = this.props;
     this.setPostDate(value);
-    value = this.getValues(new Date(Object.values(this.postdate).join('-')));
+    value = this.getValues(Object.values(this.postdate).join('-'));
     this.setPostDate(value);
     const nextState = { value };
     this.setState(nextState, () => {
@@ -62,7 +64,7 @@ export default class DatePicker extends Component<
   }
 
   private setPostDate(value) {
-    const [years, months = [], days = []] = this.dataSource;
+    const [years, months = [], days = []] = this.sources;
     const [yIndex, mIndex, dIndex] = value;
     const justIndex = utils.adjustDayIndex( years[yIndex], months[mIndex || 0]);
     const dayIndex = dIndex > justIndex ? justIndex :dIndex;
@@ -73,22 +75,21 @@ export default class DatePicker extends Component<
     };
   }
 
-  private getValues(date: Date) {
+  private getValues(date: string) {
     const { minDate, maxDate } = this.props;
-
-    const result = utils.compare(date, minDate, maxDate);
+    const result = utils.compareSize(date, minDate, maxDate);
     if (result === "lt") {
-      return utils.findIndexs(minDate as Date);
+      return utils.findIndexs(minDate as string);
     }
 
     if (result === "gt") {
-      return utils.findIndexs(maxDate as Date);
+      return utils.findIndexs(maxDate as string);
     }
 
     return utils.findIndexs(date);
   }
 
-  private getDataSource() {
+  private getSource() {
     const { year = 1940, month = 1, day = 1 } = this.postdate;
     const { mode = "date" } = this.props;
     const { years, months, days } = utils.createSource(
@@ -129,7 +130,7 @@ export default class DatePicker extends Component<
 
   render() {
     const { columnStyle = {}, style = {} } = this.props;
-    this.dataSource = this.getDataSource() as [][];
+    this.sources = this.getSource() as [][];
 
     return (
       <PickerPanel
@@ -146,7 +147,7 @@ export default class DatePicker extends Component<
           value={this.state.value}
           onChange={this.onChange}
         >
-          {this.dataSource.map((list, col) => {
+          {this.sources.map((list, col) => {
             const unitText = col === 0 ? "年" : col === 1 ? "月" : "日";
             return (
               <PickerViewColumn

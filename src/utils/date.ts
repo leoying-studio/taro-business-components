@@ -1,3 +1,9 @@
+interface DateMode{
+    year: number | string
+    month: number | string
+    day: number | string
+}
+
 /**
  * 时间格式化
  * 调用：formatDate('2019-07-03 13:00:00', "yyyy-M-d");
@@ -22,4 +28,21 @@ export function formatDate(date: Date | number | string, fmt: string) {
         if (new RegExp('(' + k + ')').test(fmt))
             fmt = fmt.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length))
     return fmt
+}
+
+
+export function secureDate(date: string) {
+    return date.replace(/-/g, "/")
+}
+
+
+export function isRunYear(fullYear) {
+    return fullYear % 4 == 0 && (fullYear % 100 != 0 || fullYear % 400 == 0);
+}
+
+
+export function bunchy(date: DateMode): string {
+   return Object.values(date).filter(value => typeof value === 'number').map((value) => {
+       return value < 10 ? '0' + value : value
+   }).join('-')
 }

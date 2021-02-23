@@ -24,17 +24,23 @@ const RegionPicker: React.FC<RegionProps> = ({
   onChoose
 }) => {
   const [values, setValues] = useState<number[]>([0, 0, 0]);
+  const utils = useRef(new Utils()).current
+  const extraSourceRef = useRef(extraSource)
 
-  const utils = new Utils();
-  if (extraSource) {
-      const dataSource = utils.getDataSource();
-      const ultimatelySource = extraSource(dataSource)
-      if (Array.isArray(ultimatelySource)) {
-        utils.setSource(ultimatelySource);
-      }
-  }
+  useEffect(() => {
+    extraSourceRef.current = extraSource
+  })
 
-  const currentSource = utils.findSource(values);
+  const currentSource = useMemo(() => {
+    if (extraSourceRef.current) {
+        const dataSource = utils.getDataSource();
+        const ultimatelySource = extraSourceRef.current(dataSource)
+        if (Array.isArray(ultimatelySource)) {
+          utils.setSource(ultimatelySource);
+        }
+    }
+    return utils.findSource(values);
+  }, [])
 
   useEffect(() => {
     if (code) {

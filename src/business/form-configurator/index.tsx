@@ -2,7 +2,6 @@ import React, { Component, useCallback, useEffect, useImperativeHandle, useMemo,
 import { View, Text, Input, Picker, ScrollView, Textarea, Icon } from '@tarojs/components'
 import { AtButton, AtIcon, AtImagePicker, AtList, AtListItem, AtSwitch, AtTextarea } from 'taro-ui';
 import Taro, { Current, render, useRouter } from '@tarojs/taro';
-import CityPicker from '../city-picker';
 import './index.scss';
 import { ConfigurationItem, FormConfigurationProps, Rule } from './interface';
 import FormItem from './FormItem';
@@ -64,66 +63,66 @@ const FormConfigurator:React.FC<FormConfigurationProps> = function({dataSource,
 
    
     const onChange = useCallback(function(e, item) {
-        const { options = [], type } = item.widget || {};
-        let value: string | number | string[] | {} = e?.detail?.value;
+        // const { options = [], type } = item.widget || {};
+        // let value: string | number | string[] | {} = e?.detail?.value;
 
-        if (type === 'city-picker') {
-            let name = e.filter((i) => i.id != 0).map((i) => i.name).join('-') || '不限';
-            let id = e.filter((i) => i.id != 0).pop()?.id || 0;
+        // if (type === 'city-picker') {
+        //     let name = e.filter((i) => i.id != 0).map((i) => i.name).join('-') || '不限';
+        //     let id = e.filter((i) => i.id != 0).pop()?.id || 0;
          
-            return setValues((pre) => {
-                const nextState = {
-                    ...pre,
-                    [item.field]: String(id),
-                    [item.mapField as string]: name
-                };
-                onValueChange && onValueChange(nextState);
-               return nextState;
-            })
-        }
+        //     return setValues((pre) => {
+        //         const nextState = {
+        //             ...pre,
+        //             [item.field]: String(id),
+        //             [item.mapField as string]: name
+        //         };
+        //         onValueChange && onValueChange(nextState);
+        //        return nextState;
+        //     })
+        // }
 
-        if (type === 'input') {
-            value = e.detail.value;
-        } else if (type === 'picker') {
-            const pickerIndex = Number(e.detail.value);
-            value = options[pickerIndex].value 
-        } else if (type === 'age-range-picker') {
-            const [a, b] = value as string[];
-            const {start, end} = getAgeRange();
-            if (start[a].value > end[b].value && end[b].value !== 0) {
-                value = {
-                    minAge: end[b].value,
-                    maxAge: start[a].value
-                }; 
-            } else if (start[a].value === 0 || end[b].value === 0) {
-                value = {
-                    minAge: 18,
-                    maxAge: 80
-                }; 
-            } else {
-                value = {
-                    minAge: start[a].value,
-                    maxAge: end[b].value
-                }; 
-            }
-        } else if (type === 'date-month') {
-            const [years, months] = getMonthRange();
-            value = years[value[0]].value + '-' + months[value[1]].value
-        } else if (type === 'image-picker') {
-            value = e;
-        } else if (type === 'textarea') {
-            value = e;
-        }
+        // if (type === 'input') {
+        //     value = e.detail.value;
+        // } else if (type === 'picker') {
+        //     const pickerIndex = Number(e.detail.value);
+        //     value = options[pickerIndex].value 
+        // } else if (type === 'age-range-picker') {
+        //     const [a, b] = value as string[];
+        //     const {start, end} = getRange();
+        //     if (start[a].value > end[b].value && end[b].value !== 0) {
+        //         value = {
+        //             minAge: end[b].value,
+        //             maxAge: start[a].value
+        //         }; 
+        //     } else if (start[a].value === 0 || end[b].value === 0) {
+        //         value = {
+        //             minAge: 18,
+        //             maxAge: 80
+        //         }; 
+        //     } else {
+        //         value = {
+        //             minAge: start[a].value,
+        //             maxAge: end[b].value
+        //         }; 
+        //     }
+        // } else if (type === 'date-month') {
+        //     const [years, months] = getMonthRange();
+        //     value = years[value[0]].value + '-' + months[value[1]].value
+        // } else if (type === 'image-picker') {
+        //     value = e;
+        // } else if (type === 'textarea') {
+        //     value = e;
+        // }
        
-        setValues((preValues) => {
-            const keyValue = typeof value === 'object' ? value : { [item.field]: value};
-            const nextValues = {
-                ...preValues,
-                ...keyValue
-            };
-            onValueChange && onValueChange(nextValues);
-            return nextValues;
-        })
+        // setValues((preValues) => {
+        //     const keyValue = typeof value === 'object' ? value : { [item.field]: value};
+        //     const nextValues = {
+        //         ...preValues,
+        //         ...keyValue
+        //     };
+        //     onValueChange && onValueChange(nextValues);
+        //     return nextValues;
+        // })
     }, [])
 
     // 模型, 外面模型
@@ -140,6 +139,18 @@ const FormConfigurator:React.FC<FormConfigurationProps> = function({dataSource,
         }
     }
 
+    const mappingValues = function(item) {
+        const fields = item.fields 
+        if (typeof fields === 'string') {
+            return values[fields]
+        }
+        let filterValues = {}
+        fields.forEach((key) => {
+            filterValues[key] = values[key]
+        })
+        return fields
+    }
+
     /**
      * 
      * @param item 
@@ -147,15 +158,15 @@ const FormConfigurator:React.FC<FormConfigurationProps> = function({dataSource,
      */
     const renderListItem = (item: ConfigurationItem, index: number) => {
         const Wrapper = wrapper() as React.FC;
+        const key = typeof item.fields === 'string' ? item.fields : item.fields[0]
         return (
             <Wrapper>
                    <FormItem 
-                        key={item.field}
+                        key={key}
                         data={item} 
-                        disabled={disabled}
-                        values={values}
-                        onChange={onChange}
-                        defaultValues={defaultValues}></FormItem>
+                        value={mappingValues(item)}
+                        onChoose={onChange}
+                    />
             </Wrapper>
         )
     }

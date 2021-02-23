@@ -11,9 +11,9 @@ const useOverlay = () => {
     const {popup, close, topView} = useContext(TopContext)
 
     useEffect(() => {
-        return () => {
-            close && close();
-        }
+        // return () => {
+        //     close && close();
+        // }
     }, [])
 
     function show(Comp: React.FC, options: overlayOptionsProps ={}) {

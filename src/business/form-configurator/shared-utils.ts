@@ -1,4 +1,4 @@
-export const getAgeRange = function() {
+export const getRange = function() {
     const start =  Array(63)
     .fill(null)
     .map((item, index) => {

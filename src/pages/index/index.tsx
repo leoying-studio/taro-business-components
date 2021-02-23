@@ -1,4 +1,4 @@
-import React, { Component, useRef } from 'react'
+import React, { Component, useRef, useState } from 'react'
 import { View, Text, Button } from '@tarojs/components'
 import { useAgeRangePicker } from '@/hooks/useAgeRangePicker';
 import { AtButton, AtList, AtListItem } from 'taro-ui';
@@ -7,47 +7,44 @@ import { useRegionPicker } from '@/hooks/useRegionPicker';
 import './index.scss';
 import { useDatePicker } from '@/hooks/useDatePicker';
 import Login from './../../business/login';
-
+import { formatDate } from '@/utils/date';
+import Taro from '@tarojs/taro'
 export default function IndexPage() {
    const overlay = useOverlay();
+   const [state, setState] = useState({})
    const ageRangePicker = useAgeRangePicker();
    const regionPicker = useRegionPicker();
    const datePicker = useDatePicker();
-   const ageRangeValueRef = useRef({
-     minAge: 0,
-     maxAge: 0
-   });
-   const regionPickerRef = useRef({});
   
    const onPopupAge = function() {
-    ageRangePicker.show({
-      defaultValue: ageRangeValueRef.current,
-      onChoose(value, handleType) {
-        ageRangeValueRef.current ={
-           minAge: value.minAge.value,
-           maxAge: value.maxAge.value
-        }
-      }
-    })
+      Taro.navigateTo({
+        url: '/pages/from/index'
+      })
    }
 
    const onPopupRegion = function() {
     regionPicker.show({
-      defaultValue: ageRangeValueRef.current,
+      defaultValue: "",
       onChoose(value, handleType) {
-        ageRangeValueRef.current ={
-           minAge: value.minAge.value,
-           maxAge: value.maxAge.value
-        }
+        setState({
+          ...state,
+          ['region']: value.code
+        })
       }
     })
    }
 
    const onPopupDate = function() {
     datePicker.show({
-      column: 3,
+      mode:"date",
+      date: state['date'],
+      maxDate: formatDate(new Date(), 'yyyy-MM-dd'),
       onChoose(value, handleType) {
-        
+        const {year, month, day} = value
+        setState({
+          ...state,
+          ['date']: year + '-' + month +'-'+ day
+        })
       }
     })
    }
@@ -64,8 +61,8 @@ export default function IndexPage() {
             </View>
             <AtList>
               <AtListItem title='年龄区间' onClick={onPopupAge} arrow="right"/>
-              <AtListItem title='地区选择' arrow='right' onClick={onPopupRegion}/>
-              <AtListItem title='日期选择' extraText='' onClick={onPopupDate}/>
+              <AtListItem title='地区选择' arrow='right' extraText={state['region']} onClick={onPopupRegion}/>
+              <AtListItem title='日期选择' extraText={state['date']} onClick={onPopupDate}/>
             </AtList>
         </View>
         <View className="panel">

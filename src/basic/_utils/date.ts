@@ -1,4 +1,4 @@
-import { formatDate } from "@/utils/date";
+import { formatDate, isRunYear, secureDate } from "@/utils/date";
 
 /*
  * @Author: your name
@@ -10,7 +10,7 @@ import { formatDate } from "@/utils/date";
  */
 export default class DateUtils {
 
-  
+  private static MAX_MONTH = [1, 3, 5, 7, 8, 10, 12]
   /**
    * @param y 年
    * @param m 月
@@ -19,10 +19,11 @@ export default class DateUtils {
     const years: number[] = [];
     const months: number[] = [];
     const days: number[] = [];
-    const date = new Date();
-    const len = date.getFullYear() + 30;
 
-    for (let i = 1940; i <= len; i++) {
+    const date = new Date();
+    const len = date.getFullYear() + 100;
+
+    for (let i = 1900; i <= len; i++) {
       years.push(i);
     }
 
@@ -30,10 +31,10 @@ export default class DateUtils {
       months.push(i);
     }
 
-    let numberOfDays = [1, 3, 5, 7, 8, 10, 12].includes(Number(m)) ? 31 : 30;
+    let numberOfDays = DateUtils.MAX_MONTH.includes(Number(m)) ? 31 : 30;
 
     if (Number(m)=== 2) {
-      if (y &&  DateUtils.isRunYear(y)) {
+      if (y && isRunYear(y)) {
         numberOfDays = 29;
       } else {
         numberOfDays = 28;
@@ -51,14 +52,10 @@ export default class DateUtils {
     };
   };
 
-  static isRunYear(fullYear) {
-    return fullYear % 4 == 0 && (fullYear % 100 != 0 || fullYear % 400 == 0);
-  }
-
   static adjustDayIndex(y, m) {
-    let numberOfDays = [1, 3, 5, 7, 8, 10, 12].includes(Number(m)) ? 31 : 30;
+    let numberOfDays = DateUtils.MAX_MONTH.includes(Number(m)) ? 31 : 30;
     if (Number(m)=== 2) {
-      if (y &&  DateUtils.isRunYear(y)) {
+      if (y && isRunYear(y)) {
         numberOfDays = 29;
       } else {
         numberOfDays = 28;
@@ -68,44 +65,31 @@ export default class DateUtils {
   }
 
   static getToDayIndexs(): number[] {
-    const date = new Date();
-    const y = date.getFullYear();
-    const m = date.getMonth() + 1;
-    const d = date.getDate();
-    const { years, months, days } = DateUtils.createSource(y, m);
-    const yIndex = years.findIndex((item) => item === y);
-    const mIndex = months.findIndex((item, index)=> item === m);
-    const dIndex = days.findIndex((item) => item === d);
-    return [yIndex, mIndex, dIndex];
+    const d = new Date();
+    const ye = d.getFullYear();
+    const mo = (d.getMonth()+1).toString().padStart(2,'0');
+    const da = d.getDate().toString().padStart(2,'0');
+    return DateUtils.findIndexs(ye+'-'+mo+'-'+da)
   }
 
-  static dateToNumerical(date: string | Date) {
-    let stringify = date;
-    if (typeof Date !== 'string') {
-      stringify = formatDate(date, 'yyyy-MM-dd');
-    }
-    const [y = 1940, m = 1, d = 1] = (stringify as string)?.split("-") || [];
+  static split(date: string) {
+    let safeDate = secureDate(date) ;
+    const [y = 1940, m = 1, d = 1] = (safeDate as string)?.split("/") || [];
     return [Number(y), Number(m), Number(d)];
   }
   
-  static compare(date: Date, minDate?: Date, maxDate?: Date): "lt" | "gt" | null {
-    const dateTime = new Date(date).getTime();
+  static compareSize(date: string, minDate?: string, maxDate?: string): "lt" | "gt" | null {
+    const dateTime = new Date(secureDate(date)).getTime();
     let minTime = 0, maxTime = 0; 
     if (minDate) {
-      minTime = new Date(minDate).getTime();
-      if (!minTime) {
-        console.error('无法获取到最小时间，minTime 请传入  new Date(yyyy/MM/dd) 的格式解析');
-      }
+      minTime = new Date(secureDate(minDate)).getTime();
       if (dateTime < minTime) {
         return 'lt';
      }
     }
    
     if (maxDate) {
-      maxTime = new Date(maxDate).getTime();
-      if (!maxTime) {
-        console.error('无法获取到最大时间，maxTime 请传入  new Date(yyyy/MM/dd) 的格式解析');
-      }
+      maxTime = new Date( secureDate(maxDate)).getTime();
       if (dateTime > maxTime) {
         return 'gt';
       }
@@ -114,12 +98,12 @@ export default class DateUtils {
     return null;
   }
 
-  static findIndexs(value: string | Date) {
-    const [y, m, d] = DateUtils.dateToNumerical(value);
+  static findIndexs(value: string) {
+    const [y, m, d] = DateUtils.split(value);
     const {years, months, days} = DateUtils.createSource(Number(y), Number(m));
-    const yIndex = years.findIndex((item) => item === y);
-    const mIndex = months.findIndex((item, index)=> item === m);
-    const dIndex = days.findIndex((item) => item === d);
+    const yIndex = years.findIndex((item) => item === Number(y));
+    const mIndex = months.findIndex((item, index)=> item === Number(m));
+    const dIndex = days.findIndex((item) => item === Number(d));
     return [yIndex, mIndex, Math.max(dIndex, 0)];
   }
   
